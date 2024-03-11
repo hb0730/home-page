@@ -17,7 +17,7 @@
 .time_module {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 
   padding: 20px;
   animation: fade 0.5s;
