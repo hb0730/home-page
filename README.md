@@ -1,75 +1,55 @@
-# Nuxt 3 Minimal Starter
+# home-page
+>
+> 源自于[imsyy/home](https://github.com/imsyy/home)的开源项目
+>
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+![hb0730](/screenshots/home.png)
 
-## Setup
+## 功能
 
-Make sure to install the dependencies:
+- [x] 载入动画
+- [x] 个人信息
+- [x] 日期及时间
+- [x] 实时天气
+- [x] 时光进度条
+- [x] 移动端适配
 
-```bash
-# npm
-npm install
+## 静态部署
 
-# pnpm
+```shell
+# 安装pnpm
+npm install -g pnpm
+# 安装依赖
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+# 构建静态部署
+pnpm generate
 ```
 
-## Development Server
+## 相关配置
 
-Start the development server on `http://localhost:3000`:
+- 相关 **站点** , **个人** , **社交** 等配置都在 `app.config.ts` 中进行配置
 
-```bash
-# npm
-npm run dev
+- 关于 **天气**,**hitokoto 一言** 等都在 `/api`目录下
 
-# pnpm
-pnpm run dev
+## 关于图标
 
-# yarn
-yarn dev
+ 1. socials 图标在 `public/images/icon` 目录下
+ 2. 其他图标使用的 `iconfont` 的图标库,相关文档 [nuxt-icon](https://nuxt.com/modules/icon)
 
-# bun
-bun run dev
-```
+## API
 
-## Production
+- [教书先生 API](https://api.oioweb.cn/doc/weather/GetWeather)
+- [Hitokoto 一言](https://hitokoto.cn/)
 
-Build the application for production:
+## 技术栈
 
-```bash
-# npm
-npm run build
+- [Nuxt.js](https://nuxtjs.org/)
+- [vue3](https://cn.vuejs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [pnpm](https://pnpm.io/)
+- [iconfont](https://www.iconfont.cn/)
 
-# pnpm
-pnpm run build
+## License
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+[MIT](https://mit-license.org/)
