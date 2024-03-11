@@ -3,7 +3,7 @@
 > 源自于[imsyy/home](https://github.com/imsyy/home)的开源项目
 >
 
-![hb0730](/screenshots/home.png)
+![hb0730](/screenshots/main.png)
 
 ## 功能
 
