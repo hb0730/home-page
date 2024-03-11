@@ -40,6 +40,7 @@ pnpm generate
 
 - [教书先生 API](https://api.oioweb.cn/doc/weather/GetWeather)
 - [Hitokoto 一言](https://hitokoto.cn/)
+- [小歪 API](https://api.aixiaowai.cn/)
 
 ## 技术栈
 
