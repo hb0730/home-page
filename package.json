@@ -10,23 +10,23 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@morev/vue-transitions": "^3.0.1",
+    "@morev/vue-transitions": "^3.0.2",
     "@pinia/nuxt": "^0.5.1",
-    "nuxt": "^3.10.3",
+    "nuxt": "^3.12.1",
     "typed.js": "^2.1.0",
-    "vue": "^3.4.19",
-    "vue-router": "^4.3.0"
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.7.0",
-    "@nuxtjs/tailwindcss": "^6.11.4",
-    "@typescript-eslint/parser": "^7.1.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-format": "^0.1.0",
-    "nuxt-icon": "^0.6.8",
+    "@antfu/eslint-config": "^2.21.1",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^9.4.0",
+    "eslint-plugin-format": "^0.1.1",
+    "nuxt-icon": "^0.6.10",
     "nuxt-swiper": "^1.2.2",
-    "sass": "^1.71.1",
-    "vue-eslint-parser": "^9.4.2",
+    "sass": "^1.77.5",
+    "vue-eslint-parser": "^9.4.3",
     "vue3-toastify": "^0.2.1"
   }
 }
