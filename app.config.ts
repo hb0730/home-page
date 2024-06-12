@@ -1,6 +1,4 @@
-import type { AppConfigInput } from 'nuxt/schema'
-
-export default defineAppConfig<AppConfigInput>({
+export default defineAppConfig({
   siteTitle: 'My site', // 站点名称
   siteAuthor: 'hb0730', // 作者
   siteKeywords: 'hb0730,个人主页', // 关键词,
@@ -29,6 +27,11 @@ export default defineAppConfig<AppConfigInput>({
       icon: 'fa-solid:blog',
       name: '博客',
       link: 'https://blog.hb0730.me/',
+    },
+    {
+      icon: 'fa-solid:book-reader',
+      name: '网站导航',
+      link: 'https://t-nav.hb0730.me',
     },
     {
       icon: 'tdesign:object-storage',
