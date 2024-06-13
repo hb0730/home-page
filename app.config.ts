@@ -43,5 +43,10 @@ export default defineAppConfig({
       name: '站点检测',
       link: 'https://status.hb0730.me',
     },
+    {
+      icon: 'fa-brands:docker',
+      name: 'Docker Proxy',
+      link: 'https://docker.uhoox.ink',
+    },
   ],
 })
