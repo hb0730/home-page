@@ -34,7 +34,7 @@ const siteLinkArray = computed(() => {
         <div class="grid grid-cols-3 gap-4 link-all">
           <a v-for="(item, index) in site" :key="index" class="widget link-item" :href="item.link" target="_blank">
             <Icon v-if="item.icon" :name="item.icon" class="icon text-hidden" size="26" />
-            <span class="title text-hidden">{{ item.name }}</span>
+            <span class="title text-hidden ">{{ item.name }}</span>
           </a>
         </div>
       </SwiperSlide>
@@ -111,6 +111,13 @@ const siteLinkArray = computed(() => {
       .title {
         font-size: 1.1rem;
         margin-left: 8px;
+        @media (max-width: 720px) {
+          font-size: 0.9rem;
+          width: 100%;
+          text-align: center;
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
       }
       &:hover {
         transform: scale(1.02);
