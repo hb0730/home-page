@@ -75,7 +75,7 @@ $angle: 30deg;
     width: 100%;
     height: 100%;
     border-radius: 100%;
-    background-image: url('https://api.aixiaowai.cn/api/api.php');
+    background-image: url('https://www.dmoe.cc/random.php');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

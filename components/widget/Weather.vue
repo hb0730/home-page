@@ -4,12 +4,12 @@ import { getWeather } from '@/api'
 
 const data = await getWeather()
 const _city = computed(() => {
-  return `当前城市：${data?.city || '未知'}`
+  return `当前城市：${data?.city || data?.province || '未知'}`
 })
 </script>
 
 <template>
-  <div v-if="data?.city && data?.weather" class="weather">
+  <div v-if="data?.weather" class="weather">
     <span>{{ _city }}&nbsp;</span>
     <span>{{ data?.weather }}&nbsp;</span>
     <span>{{ data?.temperature }} ℃&nbsp;</span>
