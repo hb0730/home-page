@@ -14,13 +14,13 @@
     "@pinia/nuxt": "^0.5.1",
     "nuxt": "^3.12.4",
     "typed.js": "^2.1.0",
-    "vue": "^3.4.32",
+    "vue": "^3.4.34",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.23.0",
+    "@antfu/eslint-config": "^2.23.2",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "@typescript-eslint/parser": "^7.16.1",
+    "@typescript-eslint/parser": "^7.17.0",
     "eslint": "^9.7.0",
     "eslint-plugin-format": "^0.1.2",
     "nuxt-icon": "^0.6.10",
