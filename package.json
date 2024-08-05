@@ -11,17 +11,17 @@
   },
   "dependencies": {
     "@morev/vue-transitions": "^3.0.2",
-    "@pinia/nuxt": "^0.5.1",
+    "@pinia/nuxt": "^0.5.2",
     "nuxt": "^3.12.4",
     "typed.js": "^2.1.0",
-    "vue": "^3.4.34",
-    "vue-router": "^4.4.0"
+    "vue": "^3.4.35",
+    "vue-router": "^4.4.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.23.2",
+    "@antfu/eslint-config": "^2.24.1",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "@typescript-eslint/parser": "^7.17.0",
-    "eslint": "^9.7.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^9.8.0",
     "eslint-plugin-format": "^0.1.2",
     "nuxt-icon": "^0.6.10",
     "nuxt-swiper": "^1.2.2",
