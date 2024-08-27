@@ -18,7 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="widget module profile">
+  <a class="widget module profile" href="https://resume.hb0730.me" target="_blank">
     <view class="gravatar">
       <img :src="appConfig.siteLogo" alt="头像">
     </view>
@@ -29,7 +29,7 @@ onMounted(() => {
     <!-- <a :href="siteUrl" class="icon" target="_blank">
       <Icon name="solar:square-forward-linear" />
     </a> -->
-  </div>
+  </a>
 </template>
 
 <style lang='scss' scoped>

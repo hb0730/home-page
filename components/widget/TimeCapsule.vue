@@ -94,11 +94,11 @@ onBeforeUnmount(() => {
       border-radius: 6px;
       text-align: center;
       font-family: UnidreamLED;
+      animation: progress_face 3s linear;
       text {
         color: #564d59;
         font-size: 0.9rem;
       }
-      animation: progress_face 3s linear;
     }
   }
 }
