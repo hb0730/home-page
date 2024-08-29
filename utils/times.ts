@@ -1,3 +1,5 @@
+import dayjs from 'dayjs'
+
 /**
  * 时钟
  */
@@ -58,13 +60,26 @@ export interface TimeCapsule {
  */
 export interface CapsuleProgress {
   /**
+   * 名称
+   */
+  name: '今日' | '本周' | '本月' | '今年' | ''
+  /**
+   * 总时间
+   */
+  total: number
+  /**
    * 已经过去的时间
    */
   elapsed: number
   /**
+   * 剩余时间
+   */
+  remaining: number
+  /**
    * 进度
    */
-  pass: number
+  pass: string
+  unit?: 'day' | 'week' | 'month' | 'year'
 }
 
 /**
@@ -97,46 +112,44 @@ export function getCurrentTime(): Clock {
  * @returns  时光胶囊
  */
 export function getTimeCapsule(): TimeCapsule {
-  // 日进度
-  const todayStartDate = new Date(new Date().toLocaleDateString()).getTime()
-  const todayPassHours = (new Date().getTime() - todayStartDate) / 1000 / 60 / 60
-  const todayPassHoursPercent = (todayPassHours / 24) * 100
-
-  // 周进度
-  const weeks = [7, 1, 2, 3, 4, 5, 6]
-  const weekDay = weeks[new Date().getDay()]
-  const weekDayPassPercent = (weekDay / 7) * 100
-
-  // 月进度
-  const year = new Date().getFullYear()
-  const date = new Date().getDate()
-  const month = new Date().getMonth() + 1
-  const monthAll = new Date(year, month, 0).getDate()
-  const monthPassPercent = (date / monthAll) * 100
-
-  // 年进度
-  const yearStartDate = new Date(year, 0, 1).getTime()
-  const yearEndDate = new Date(year + 1, 0, 1).getTime()
-  const yearPassHours = (new Date().getTime() - yearStartDate) / 1000 / 60 / 60
-  const yearTotalHours = (yearEndDate - yearStartDate) / 1000 / 60 / 60
-  const yearPassPercent = (yearPassHours / yearTotalHours) * 100
-
+  const now = dayjs()
+  const dayText = {
+    day: '今日',
+    week: '本周',
+    month: '本月',
+    year: '今年',
+  }
+  /**
+   *  获取时间差
+   * @param unit .
+   */
+  const getDiff = (unit: 'day' | 'week' | 'month' | 'year'): CapsuleProgress => {
+    // 获取当前时间单位的开始时间
+    const start = now.startOf(unit)
+    // 获取当前时间单位的结束时间
+    const end = now.endOf(unit)
+    // 获取当前时间单位的总时间
+    const total = end.diff(start, unit === 'day' ? 'hour' : 'day') + 1
+    // 计算已经过去的时间(天数/小时)
+    let passed = now.diff(start, unit === 'day' ? 'hour' : 'day')
+    if (unit === 'week') {
+      passed = (passed + 6) % 7
+    }
+    const remaining = total - passed
+    const pass = (passed / total) * 100
+    return {
+      name: dayText[unit] as '今日' | '本周' | '本月' | '今年' | '',
+      total,
+      elapsed: passed,
+      remaining,
+      pass: pass.toFixed(2),
+      unit,
+    }
+  }
   return {
-    day: {
-      elapsed: Math.floor(todayPassHours),
-      pass: Math.floor(todayPassHoursPercent),
-    },
-    week: {
-      elapsed: weekDay,
-      pass: Math.floor(weekDayPassPercent),
-    },
-    month: {
-      elapsed: date,
-      pass: Math.floor(monthPassPercent),
-    },
-    year: {
-      elapsed: month - 1,
-      pass: Math.floor(yearPassPercent),
-    },
+    day: getDiff('day'),
+    week: getDiff('week'),
+    month: getDiff('month'),
+    year: getDiff('year'),
   }
 }
