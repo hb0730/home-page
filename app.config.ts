@@ -36,7 +36,7 @@ export default defineAppConfig({
     {
       icon: 'i-ri-file-user-fill',
       title: '个人简历',
-      url: 'https://resume.hb0730.me',
+      url: 'https://user.hb0730.me',
     },
     {
       icon: 'i-ri-cloud-fill',

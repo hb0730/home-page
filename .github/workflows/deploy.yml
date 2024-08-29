@@ -3,6 +3,9 @@ on:
   push:
     tags:
       - "*"
+  schedule:
+    - cron: "0 12 * * FRI"
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
