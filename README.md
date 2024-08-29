@@ -3,7 +3,10 @@
 > 源自于[imsyy/home](https://github.com/imsyy/home)的开源项目
 >
 
-![hb0730](/screenshots/main.png)
+|  |  |
+| --- | --- |
+|![](screenshots/screenshots-1.png)|![](screenshots/screenshots-2.png)|
+|![](screenshots/screenshots-3.png)|![](screenshots/screenshots-4.png)|
 
 ## 功能
 
@@ -27,14 +30,9 @@ pnpm generate
 
 ## 相关配置
 
-- 相关 **站点** , **个人** , **社交** 等配置都在 `app.config.ts` 中进行配置
-
-- 关于 **天气**,**hitokoto 一言** 等都在 `/api`目录下
-
-## 关于图标
-
- 1. socials 图标在 `public/images/icon` 目录下
- 2. 其他图标使用的 `iconfont` 的图标库,相关文档 [nuxt-icon](https://nuxt.com/modules/icon)
+1. **网站信息**,**社交信息**等配置修改 `app.config.ts` 相关配置
+2. **天气**,**一言**等api配置修改 `utils/*`相关配置
+3. **背景图片**修改 `composables/useGlobal.ts`相关配置
 
 ## API
 
@@ -48,7 +46,7 @@ pnpm generate
 - [Nuxt.js](https://nuxtjs.org/)
 - [vue3](https://cn.vuejs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
+- [unocss](https://unocss.com/)
 - [pnpm](https://pnpm.io/)
 - [iconfont](https://www.iconfont.cn/)
 
