@@ -1,0 +1,37 @@
+{
+  "name": "nuxt-app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint . --flag unstable_ts_config",
+    "lint:fix": "eslint . --fix --flag unstable_ts_config "
+  },
+  "dependencies": {
+    "@nuxt/image": "^1.7.0",
+    "@vueuse/nuxt": "^11.0.3",
+    "nuxt": "^3.13.0",
+    "vue": "^3.4.38"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.27.3",
+    "@iconify-json/fa6-brands": "^1.1.22",
+    "@iconify-json/ri": "^1.1.22",
+    "@unocss/nuxt": "^0.62.3",
+    "eslint": "^9.9.1",
+    "eslint-plugin-format": "^0.1.2",
+    "nuxt-swiper": "^1.2.2",
+    "sass": "^1.77.8",
+    "typescript": "^5.5.4",
+    "unocss": "^0.62.3",
+    "vite-plugin-remove-console": "^2.2.0"
+  },
+  "volta": {
+    "node": "20.17.0",
+    "pnpm": "9.7.1"
+  }
+}

@@ -1,0 +1,12 @@
+// 字体文件
+@font-face {
+  font-family: 'UnidreamLED';
+  src: url('~/assets/fonts/UnidreamLED.eot');
+  /***兼容ie9***/
+  src:
+    url('~/assets/fonts/UnidreamLED.eot?#iefix') format('embedded-opentype'),
+    /***兼容ie6-ie8***/ url('~/assets/fonts/UnidreamLED.woff') format('woff'),
+    local('UnidreamLED'),
+    url('~/assets/fonts/UnidreamLED.woff');
+  /***默认使用本地的***/
+}

@@ -1,0 +1,16 @@
+.progress_pass {
+  background-color: #efefef;
+  border-radius: 6px;
+  text-align: center;
+  font-family: UnidreamLED;
+  animation: progress_face 3s linear;
+  text {
+    color: #564d59;
+    font-size: 0.9rem;
+  }
+}
+@keyframes progress_face {
+  0% {
+    width: 0;
+  }
+}
