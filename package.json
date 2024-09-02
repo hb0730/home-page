@@ -12,7 +12,7 @@
     "lint:fix": "eslint . --fix --flag unstable_ts_config "
   },
   "dependencies": {
-    "@nuxt/image": "^1.7.0",
+    "@nuxt/image": "^1.8.0",
     "@vueuse/nuxt": "^11.0.3",
     "nuxt": "^3.13.0",
     "vue": "^3.4.38"
@@ -33,6 +33,6 @@
   },
   "volta": {
     "node": "20.17.0",
-    "pnpm": "9.7.1"
+    "pnpm": "9.9.0"
   }
 }
