@@ -1,6 +1,11 @@
 import antfu from '@antfu/eslint-config'
 
 export default antfu({
+  ignores: [
+    '.github',
+    'dist',
+    'node_modules',
+  ],
   vue: true,
   typescript: true,
   formatters: {
@@ -14,11 +19,7 @@ export default antfu({
     'no-console': 'off',
     // 允许使用process
     'node/prefer-global/process': 'off',
+    // 允许函数定义内部
+    'unicorn/consistent-function-scoping': 'warn',
   },
-}, {
-  ignores: [
-    '.github',
-    'dist',
-    'node_modules',
-  ],
 })

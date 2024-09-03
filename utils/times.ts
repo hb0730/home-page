@@ -7,31 +7,31 @@ export interface Clock {
   /**
    * 年
    */
-  year: number
+  year?: number
   /**
    * 月
    */
-  month: number
+  month?: string
   /**
    * 日
    */
-  day: number
+  day?: string
   /**
    * 时
    */
-  hour: number
+  hour?: string
   /**
    * 分
    */
-  minute: number
+  minute?: string
   /**
    * 秒
    */
-  second: number
+  second?: string
   /**
    * 星期
    */
-  weekday: string
+  weekday?: string
 }
 
 /**
@@ -87,26 +87,34 @@ export interface CapsuleProgress {
  * @returns 当前时间
  */
 export function getCurrentTime(): Clock {
-  const date = new Date()
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-  const weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
-  const currentTime = {
+  const time = new Date()
+  const year = time.getFullYear()
+  const month = padZero(time.getMonth() + 1)
+  const day = padZero(time.getDate())
+  const hour = padZero(time.getHours())
+  const minute = padZero(time.getMinutes())
+  const second = padZero(time.getSeconds())
+  const weekday = ['日', '一', '二', '三', '四', '五', '六'][time.getDay()]
+  const current: Clock = {
     year,
     month,
     day,
     hour,
     minute,
     second,
-    weekday: weekday[date.getDay()],
+    weekday: `星期${weekday}`,
   }
-  return currentTime
+  return current
 }
 
+/**
+ *  补零
+ * @param num .
+ * @returns .
+ */
+export function padZero(num: number): string {
+  return num < 10 ? `0${num}` : `${num}`
+}
 /**
  *  时光胶囊
  * @returns  时光胶囊
