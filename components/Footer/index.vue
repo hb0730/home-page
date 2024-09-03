@@ -24,14 +24,14 @@ const startDate = computed(() => {
 </script>
 
 <template>
-  <div class="blur" w-full p-3 absolute bottom-0 left-0 text-center>
-    <div>
+  <footer class="blur w-full p-3 absolute bottom-0 left-0 text-center">
+    <div class="flex items-center h-full w-full justify-center max-md:text-size-[0.8rem] text-hidden">
       <span>&copy; {{ startDate }} <a :href="url" target="_blank" class="hover-scale">{{ config.author }}</a></span>
-      <span>&nbsp;Power by <a href="http://hb0730.me" target="_blank" class="hover-scale">hb0730</a> </span>
-      <span>&nbsp;Theme by <a href="https://github.com/imsyy/home" target="_blank" class="hover-scale">imsyy</a></span>
-      &nbsp;<a v-if="config.icp" href="http://beian.miit.gov.cn" target="_blank" class="hover-scale">{{ config.icp }}</a>
+      <span class="max-md:hidden">&nbsp;Power by <a href="https://hb0730.me" target="_blank" class="hover-scale">hb0730</a> </span>
+      <span class="max-md:hidden">&nbsp;Theme by <a href="https://github.com/imsyy/home" target="_blank" class="hover-scale">imsyy</a></span>
+      <span>&nbsp;<a v-if="config.icp" href="http://beian.miit.gov.cn" target="_blank" class="hover-scale">{{ config.icp }}</a></span>
     </div>
-  </div>
+  </footer>
 </template>
 
 <style lang="scss" scoped>
