@@ -13,26 +13,26 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.8.1",
-    "@vueuse/nuxt": "^11.1.0",
+    "@vueuse/nuxt": "^11.2.0",
     "nuxt": "^3.13.2",
     "vue": "^3.5.12"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",
     "@iconify-json/fa6-brands": "^1.2.1",
-    "@iconify-json/ri": "^1.2.2",
+    "@iconify-json/ri": "^1.2.3",
     "@unocss/nuxt": "^0.63.6",
     "dayjs": "^1.11.13",
     "eslint": "^9.13.0",
     "eslint-plugin-format": "^0.1.2",
     "nuxt-swiper": "^1.2.2",
-    "sass": "^1.80.4",
+    "sass": "^1.80.5",
     "typescript": "^5.6.3",
     "unocss": "^0.63.6",
     "vite-plugin-remove-console": "^2.2.0"
   },
   "volta": {
     "node": "20.18.0",
-    "pnpm": "9.12.2"
+    "pnpm": "9.12.3"
   }
 }
