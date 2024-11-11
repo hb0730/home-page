@@ -14,21 +14,21 @@
   "dependencies": {
     "@nuxt/image": "^1.8.1",
     "@vueuse/nuxt": "^11.2.0",
-    "nuxt": "^3.13.2",
+    "nuxt": "^3.14.159",
     "vue": "^3.5.12"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",
     "@iconify-json/fa6-brands": "^1.2.1",
     "@iconify-json/ri": "^1.2.3",
-    "@unocss/nuxt": "^0.63.6",
+    "@unocss/nuxt": "^0.64.0",
     "dayjs": "^1.11.13",
-    "eslint": "^9.13.0",
+    "eslint": "^9.14.0",
     "eslint-plugin-format": "^0.1.2",
     "nuxt-swiper": "^1.2.2",
-    "sass": "^1.80.5",
+    "sass": "^1.80.6",
     "typescript": "^5.6.3",
-    "unocss": "^0.63.6",
+    "unocss": "^0.64.0",
     "vite-plugin-remove-console": "^2.2.0"
   },
   "volta": {
