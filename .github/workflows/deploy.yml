@@ -60,6 +60,7 @@ jobs:
         run: |
           tar -zcvf dist.tar.gz dist
       - name: Release
+        if: github.event_name == 'push' && github.ref == 'refs/tags/v*'
         uses:  softprops/action-gh-release@v2
         with:
           files: dist.tar.gz
