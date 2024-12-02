@@ -25,7 +25,7 @@
     "dayjs": "^1.11.13",
     "eslint": "^9.15.0",
     "eslint-plugin-format": "^0.1.2",
-    "nuxt-swiper": "^1.2.2",
+    "nuxt-swiper": "^2.0.0",
     "sass": "^1.81.0",
     "typescript": "^5.7.2",
     "unocss": "^0.64.1",
