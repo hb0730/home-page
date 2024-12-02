@@ -18,8 +18,8 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.9.2",
-    "@iconify-json/fa6-brands": "^1.2.2",
+    "@antfu/eslint-config": "^3.11.2",
+    "@iconify-json/fa6-brands": "^1.2.3",
     "@iconify-json/ri": "^1.2.3",
     "@unocss/nuxt": "^0.64.1",
     "dayjs": "^1.11.13",
@@ -27,12 +27,12 @@
     "eslint-plugin-format": "^0.1.2",
     "nuxt-swiper": "^1.2.2",
     "sass": "^1.81.0",
-    "typescript": "^5.6.3",
+    "typescript": "^5.7.2",
     "unocss": "^0.64.1",
     "vite-plugin-remove-console": "^2.2.0"
   },
   "volta": {
     "node": "20.18.1",
-    "pnpm": "9.14.2"
+    "pnpm": "9.14.3"
   }
 }
