@@ -10,7 +10,7 @@ nuxtApp.hook('page:finish', () => {
 
 <template>
   <div class="main" absolute top-0 left-0 w-full h-full>
-    <div class="container" px-3 ma w-full h-full flex items-center justify-center>
+    <div class="container" px-3 p-t-1 ma p-b-15 w-full h-full flex items-center justify-center>
       <div v-if="windowStore.isSmallScreen.value" w-full h-full>
         <Swiper
           :modules="[SwiperMousewheel]"
@@ -21,18 +21,18 @@ nuxtApp.hook('page:finish', () => {
           class="w-full h-full "
         >
           <SwiperSlide>
-            <div h-full flex items-center flex-col justify-center>
+            <div h-full flex items-center flex-col justify-center overflow-auto scrollbar-none>
               <ModulesProfile />
               <ModulesSocial />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div h-full flex items-center flex-col justify-center>
+            <div h-full flex items-center flex-col justify-center overflow-auto scrollbar-none>
               <ModulesTimes />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div h-full flex items-center flex-col justify-center>
+            <div h-full flex items-center flex-col justify-center overflow-auto scrollbar-none>
               <ModulesTimeCapsule />
               <ModulesSites />
             </div>
@@ -40,7 +40,7 @@ nuxtApp.hook('page:finish', () => {
         </Swiper>
       </div>
       <div v-else w-full h-full flex justify-center items-center>
-        <div class="left" flex-1>
+        <div class="left" flex-1 overflow-auto scrollbar-none>
           <ModulesProfile />
           <ModulesSocial />
         </div>
@@ -58,7 +58,7 @@ nuxtApp.hook('page:finish', () => {
               <ModulesTimeCapsule />
             </SwiperSlide>
           </Swiper>
-          <div class="mt-3">
+          <div class="mt-3" overflow-auto scrollbar-none>
             <WidgetSites />
           </div>
         </div>

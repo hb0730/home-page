@@ -27,6 +27,7 @@ export default defineAppConfig({
       icon: 'i-ri-blogger-fill',
       title: '博客',
       url: 'https://blog.hb0730.me/',
+      src: '',
     },
     {
       icon: 'i-ri-bookmark-3-fill',

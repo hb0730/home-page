@@ -41,7 +41,7 @@ const siteLinkArray = computed(() => {
             target="_blank"
           >
             <Icon :icon="item.icon" :src="item.src" size="8" />
-            <span class="ml-2 text-size-lg text-shadow-[0_0_5px_#00000050] text-hidden">{{ item.title }}</span>
+            <span class="ml-2 text-size-[0.85rem] text-shadow-[0_0_5px_#00000050] text-hidden">{{ item.title }}</span>
           </a>
         </div>
       </SwiperSlide>

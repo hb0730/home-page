@@ -9,6 +9,8 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 
+import { presetScrollbar } from 'unocss-preset-scrollbar'
+
 export default defineConfig({
   theme: {
     colors: {
@@ -22,6 +24,7 @@ export default defineConfig({
     presetIcons({
       scale: 1.2,
     }),
+    presetScrollbar(),
   ],
   transformers: [
     transformerDirectives(),
