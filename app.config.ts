@@ -40,6 +40,11 @@ export default defineAppConfig({
       url: 'https://user.hb0730.me',
     },
     {
+      icon: 'i-ri-mail-fill',
+      title: '临时邮件',
+      url: 'https://mail.uhoox.cc',
+    },
+    {
       icon: 'i-ri-cloud-fill',
       title: '网盘',
       url: 'https://s0.hb0730.me',
@@ -53,11 +58,6 @@ export default defineAppConfig({
       icon: 'i-fa6-brands-docker',
       title: 'Docker Proxy',
       url: 'https://docker.uhoox.ink',
-    },
-    {
-      icon: 'i-ri-mail-fill',
-      title: '临时邮件',
-      url: 'https://mail.uhoox.cc',
     },
   ], // 网站列表
 })
