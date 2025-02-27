@@ -54,5 +54,10 @@ export default defineAppConfig({
       title: 'Docker Proxy',
       url: 'https://docker.uhoox.ink',
     },
+    {
+      icon: 'i-ri-mail-fill',
+      title: '临时邮件',
+      url: 'https://mail.uhoox.cc',
+    },
   ], // 网站列表
 })
