@@ -12,8 +12,8 @@ importers:
         specifier: ^1.10.0
         version: 1.10.0(db0@0.3.2)(ioredis@5.6.1)(magicast@0.3.5)
       '@vueuse/nuxt':
-        specifier: ^12.8.2
-        version: 12.8.2(magicast@0.3.5)(nuxt@3.17.3(@parcel/watcher@2.4.1)(@types/node@22.5.0)(db0@0.3.2)(eslint@9.26.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.1)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.5.0)(jiti@2.4.2)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(yaml@2.7.0))(yaml@2.7.0))(rollup@4.40.1)(typescript@5.8.3)
+        specifier: ^13.2.0
+        version: 13.2.0(magicast@0.3.5)(nuxt@3.17.3(@parcel/watcher@2.4.1)(@types/node@22.5.0)(db0@0.3.2)(eslint@9.26.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.1)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.5.0)(jiti@2.4.2)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(yaml@2.7.0))(yaml@2.7.0))(vue@3.5.14(typescript@5.8.3))
       nuxt:
         specifier: ^3.17.3
         version: 3.17.3(@parcel/watcher@2.4.1)(@types/node@22.5.0)(db0@0.3.2)(eslint@9.26.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.1)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.5.0)(jiti@2.4.2)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(yaml@2.7.0))(yaml@2.7.0)
@@ -1196,10 +1196,6 @@ packages:
     resolution: {integrity: sha512-Q7k11wDTLIbBgoTfRYNrciK7PvjKklewrKd5PRMJCpn9Lmuqkq59HErNfJXFrBKHsE3Ld0DB6WUtpPGOvWJZoQ==}
     engines: {node: '>=18.20.5'}
 
-  '@nuxt/kit@3.15.4':
-    resolution: {integrity: sha512-dr7I7eZOoRLl4uxdxeL2dQsH0OrbEiVPIyBHnBpA4co24CBnoJoF+JINuP9l3PAM3IhUzc5JIVq3/YY3lEc3Hw==}
-    engines: {node: '>=18.12.0'}
-
   '@nuxt/kit@3.16.0':
     resolution: {integrity: sha512-yPfhk58BG6wJhELkGOTCOlkMDbZkizk3IaINcyTKm+hBKiK3SheLt7S9HStNL+qZSfH2Cf7A8sYp6M72lOIEtA==}
     engines: {node: '>=18.12.0'}
@@ -1971,19 +1967,24 @@ packages:
   '@vue/shared@3.5.14':
     resolution: {integrity: sha512-oXTwNxVfc9EtP1zzXAlSlgARLXNC84frFYkS0HHz0h3E4WZSP9sywqjqzGCP9Y34M8ipNmd380pVgmMuwELDyQ==}
 
-  '@vueuse/core@12.8.2':
-    resolution: {integrity: sha512-HbvCmZdzAu3VGi/pWYm5Ut+Kd9mn1ZHnn4L5G8kOQTPs/IwIAmJoBrmYk2ckLArgMXZj0AW3n5CAejLUO+PhdQ==}
+  '@vueuse/core@13.2.0':
+    resolution: {integrity: sha512-n5TZoIAxbWAQ3PqdVPDzLgIRQOujFfMlatdI+f7ditSmoEeNpPBvp7h2zamzikCmrhFIePAwdEQB6ENccHr7Rg==}
+    peerDependencies:
+      vue: ^3.5.0
 
-  '@vueuse/metadata@12.8.2':
-    resolution: {integrity: sha512-rAyLGEuoBJ/Il5AmFHiziCPdQzRt88VxR+Y/A/QhJ1EWtWqPBBAxTAFaSkviwEuOEZNtW8pvkPgoCZQ+HxqW1A==}
+  '@vueuse/metadata@13.2.0':
+    resolution: {integrity: sha512-kPpzuQCU0+D8DZCzK0iPpIcXI+6ufWSgwnjJ6//GNpEn+SHViaCtR+XurzORChSgvpHO9YC8gGM97Y1kB+UabA==}
 
-  '@vueuse/nuxt@12.8.2':
-    resolution: {integrity: sha512-jDsMli+MmxlhzaMwu8a2varKlkiBTPCdb+I457F7bTb1GazC6HDbGbLmhkpVQ8bNA1FzqfhwhAsOEsESF7wOkw==}
+  '@vueuse/nuxt@13.2.0':
+    resolution: {integrity: sha512-vLEyR2njEpugSOi12SuWwrClFxXrG/X20XExvkdHhIZ2R5qhm3wbmThUmHZ9K8AJI1+Y1m/qJUzmrac2FtLreA==}
     peerDependencies:
       nuxt: ^3.0.0 || ^4.0.0-0
+      vue: ^3.5.0
 
-  '@vueuse/shared@12.8.2':
-    resolution: {integrity: sha512-dznP38YzxZoNloI0qpEfpkms8knDtaoQ6Y/sfS0L7Yki4zh40LFHEhur0odJC6xTHG5dxWVPiUWBXn+wCG2s5w==}
+  '@vueuse/shared@13.2.0':
+    resolution: {integrity: sha512-vx9ZPDF5HcU9up3Jgt3G62dMUfZEdk6tLyBAHYAG4F4n73vpaA7J5hdncDI/lS9Vm7GA/FPlbOmh9TrDZROTpg==}
+    peerDependencies:
+      vue: ^3.5.0
 
   '@webassemblyjs/ast@1.12.1':
     resolution: {integrity: sha512-EKfMUOPRRUTy5UII4qJDGPpqfwjOmZ5jeGFwid9mnoqIFK+e0vqoi1qH56JpmZSzEL53jKnNzScdmftJyG5xWg==}
@@ -5571,10 +5572,6 @@ packages:
   unimport@3.14.6:
     resolution: {integrity: sha512-CYvbDaTT04Rh8bmD8jz3WPmHYZRG/NnvYVzwD6V1YAlvvKROlAeNDUBhkBGzNav2RKaeuXvlWYaa1V4Lfi/O0g==}
 
-  unimport@4.0.0:
-    resolution: {integrity: sha512-FH+yZ36YaVlh0ZjHesP20Q4uL+wL0EqTNxDZcUupsIn6WRYXZAbIYEMDLTaLBpkNVzFpqZXS+am51/HR3ANUNw==}
-    engines: {node: '>=18.12.0'}
-
   unimport@4.1.2:
     resolution: {integrity: sha512-oVUL7PSlyVV3QRhsdcyYEMaDX8HJyS/CnUonEJTYA3//bWO+o/4gG8F7auGWWWkrrxBQBYOO8DKe+C53ktpRXw==}
     engines: {node: '>=18.12.0'}
@@ -7377,33 +7374,6 @@ snapshots:
       - rollup
       - supports-color
 
-  '@nuxt/kit@3.15.4(magicast@0.3.5)(rollup@4.40.1)':
-    dependencies:
-      c12: 2.0.1(magicast@0.3.5)
-      consola: 3.4.0
-      defu: 6.1.4
-      destr: 2.0.3
-      globby: 14.0.2
-      ignore: 7.0.4
-      jiti: 2.4.2
-      klona: 2.0.6
-      knitwork: 1.2.0
-      mlly: 1.7.4
-      ohash: 1.1.4
-      pathe: 2.0.3
-      pkg-types: 1.3.1
-      scule: 1.3.0
-      semver: 7.6.3
-      std-env: 3.8.1
-      ufo: 1.5.4
-      unctx: 2.4.1
-      unimport: 4.0.0(rollup@4.40.1)
-      untyped: 1.5.2
-    transitivePeerDependencies:
-      - magicast
-      - rollup
-      - supports-color
-
   '@nuxt/kit@3.16.0(magicast@0.3.5)':
     dependencies:
       c12: 3.0.2(magicast@0.3.5)
@@ -8460,36 +8430,29 @@ snapshots:
 
   '@vue/shared@3.5.14': {}
 
-  '@vueuse/core@12.8.2(typescript@5.8.3)':
+  '@vueuse/core@13.2.0(vue@3.5.14(typescript@5.8.3))':
     dependencies:
       '@types/web-bluetooth': 0.0.21
-      '@vueuse/metadata': 12.8.2
-      '@vueuse/shared': 12.8.2(typescript@5.8.3)
+      '@vueuse/metadata': 13.2.0
+      '@vueuse/shared': 13.2.0(vue@3.5.14(typescript@5.8.3))
       vue: 3.5.14(typescript@5.8.3)
-    transitivePeerDependencies:
-      - typescript
 
-  '@vueuse/metadata@12.8.2': {}
+  '@vueuse/metadata@13.2.0': {}
 
-  '@vueuse/nuxt@12.8.2(magicast@0.3.5)(nuxt@3.17.3(@parcel/watcher@2.4.1)(@types/node@22.5.0)(db0@0.3.2)(eslint@9.26.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.1)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.5.0)(jiti@2.4.2)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(yaml@2.7.0))(yaml@2.7.0))(rollup@4.40.1)(typescript@5.8.3)':
+  '@vueuse/nuxt@13.2.0(magicast@0.3.5)(nuxt@3.17.3(@parcel/watcher@2.4.1)(@types/node@22.5.0)(db0@0.3.2)(eslint@9.26.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.1)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.5.0)(jiti@2.4.2)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(yaml@2.7.0))(yaml@2.7.0))(vue@3.5.14(typescript@5.8.3))':
     dependencies:
-      '@nuxt/kit': 3.15.4(magicast@0.3.5)(rollup@4.40.1)
-      '@vueuse/core': 12.8.2(typescript@5.8.3)
-      '@vueuse/metadata': 12.8.2
+      '@nuxt/kit': 3.17.3(magicast@0.3.5)
+      '@vueuse/core': 13.2.0(vue@3.5.14(typescript@5.8.3))
+      '@vueuse/metadata': 13.2.0
       local-pkg: 1.1.1
       nuxt: 3.17.3(@parcel/watcher@2.4.1)(@types/node@22.5.0)(db0@0.3.2)(eslint@9.26.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.1)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.5.0)(jiti@2.4.2)(sass@1.89.0)(terser@5.31.6)(tsx@4.19.2)(yaml@2.7.0))(yaml@2.7.0)
       vue: 3.5.14(typescript@5.8.3)
     transitivePeerDependencies:
       - magicast
-      - rollup
-      - supports-color
-      - typescript
 
-  '@vueuse/shared@12.8.2(typescript@5.8.3)':
+  '@vueuse/shared@13.2.0(vue@3.5.14(typescript@5.8.3))':
     dependencies:
       vue: 3.5.14(typescript@5.8.3)
-    transitivePeerDependencies:
-      - typescript
 
   '@webassemblyjs/ast@1.12.1':
     dependencies:
@@ -12847,25 +12810,6 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  unimport@4.0.0(rollup@4.40.1):
-    dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.40.1)
-      acorn: 8.14.1
-      escape-string-regexp: 5.0.0
-      estree-walker: 3.0.3
-      fast-glob: 3.3.3
-      local-pkg: 1.0.0
-      magic-string: 0.30.17
-      mlly: 1.7.4
-      pathe: 2.0.3
-      picomatch: 4.0.2
-      pkg-types: 1.3.1
-      scule: 1.3.0
-      strip-literal: 3.0.0
-      unplugin: 2.3.2
-    transitivePeerDependencies:
-      - rollup
-
   unimport@4.1.2:
     dependencies:
       acorn: 8.14.1
@@ -13279,7 +13223,7 @@ snapshots:
       browserslist: 4.24.5
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.17.1
-      es-module-lexer: 1.6.0
+      es-module-lexer: 1.7.0
       eslint-scope: 5.1.1
       events: 3.3.0
       glob-to-regexp: 0.4.1
