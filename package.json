@@ -15,11 +15,11 @@
     "@nuxt/image": "^1.10.0",
     "@vueuse/nuxt": "^12.8.2",
     "nuxt": "^3.17.7",
-    "vue": "^3.5.17"
+    "vue": "^3.5.18"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.16.0",
-    "@iconify-json/fa6-brands": "^1.2.5",
+    "@iconify-json/fa6-brands": "^1.2.6",
     "@iconify-json/ri": "^1.2.5",
     "@unocss/nuxt": "^0.65.4",
     "dayjs": "^1.11.13",
