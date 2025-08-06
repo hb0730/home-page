@@ -3,7 +3,7 @@ import {
   presetAttributify,
   presetIcons,
   presetTypography,
-  presetUno,
+  presetWind3,
   transformerAttributifyJsx,
   transformerDirectives,
   transformerVariantGroup,
@@ -18,7 +18,7 @@ export default defineConfig({
     },
   },
   presets: [
-    presetUno(),
+    presetWind3(),
     presetAttributify(),
     presetTypography(),
     presetIcons({

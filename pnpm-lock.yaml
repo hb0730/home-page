@@ -1685,9 +1685,6 @@ packages:
   '@unocss/core@66.3.3':
     resolution: {integrity: sha512-6WFLd92TJelVQARtCGaF+EgEoHKIVe43gkGXVoWILu0HUDRWdhv+cpcyX0RTJV22Y976AxeneU7/zmhAh+CXNg==}
 
-  '@unocss/core@66.4.1':
-    resolution: {integrity: sha512-2QMthvEmH0215zqIIL5WCodQ9lYShYDzziF4N1MMdcoRvCumGq9MMBFPxC54gNDrO3+/Olhp++YYmXkdZ89qrA==}
-
   '@unocss/extractor-arbitrary-variants@65.5.0':
     resolution: {integrity: sha512-7K3gftOdkv9jbWvbkExTcx6/FDP2Xk/NSsOYTvR9oITLnLjmdQvp+9276WSnNfKF3frBl8ZcqpkC2EsuL2Yutw==}
 
@@ -7142,8 +7139,6 @@ snapshots:
 
   '@unocss/core@66.3.3': {}
 
-  '@unocss/core@66.4.1': {}
-
   '@unocss/extractor-arbitrary-variants@65.5.0':
     dependencies:
       '@unocss/core': 65.5.0
@@ -7266,7 +7261,7 @@ snapshots:
 
   '@unocss/rule-utils@66.3.3':
     dependencies:
-      '@unocss/core': 66.4.1
+      '@unocss/core': 66.3.3
       magic-string: 0.30.17
 
   '@unocss/transformer-attributify-jsx@66.3.3':
