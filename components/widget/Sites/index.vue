@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import 'swiper/swiper-bundle.css'
-
 const appConfig = useAppConfig()
 const siteLinks = appConfig.website || []
 const siteLinkArray = computed(() => {
