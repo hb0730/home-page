@@ -16,16 +16,15 @@ export default defineNuxtConfig({
     '@unocss/reset/tailwind.css',
   ],
   vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: 'modern-compiler',
-        },
-      },
-    },
     plugins: [
       removeConsole(),
     ],
+  },
+  ssr:false,
+  vue:{
+    compilerOptions:{
+      isCustomElement: (tag) => tag.includes('swiper')
+    },
   },
   compatibilityDate: '2024-08-27',
 })

@@ -21,6 +21,60 @@ export default defineAppConfig({
       tip: '来封 Email ~',
       url: 'mailto:1278032416@qq.com',
     },
+    {
+      name: 'Email',
+      icon: 'i-ri-mail-fill',
+      tip: '来封 Email ~',
+      url: 'mailto:1278032416@qq.com',
+    },
+    {
+      name: 'Email',
+      icon: 'i-ri-mail-fill',
+      tip: '来封 Email ~',
+      url: 'mailto:1278032416@qq.com',
+    },
+    {
+      name: 'Email',
+      icon: 'i-ri-mail-fill',
+      tip: '来封 Email ~',
+      url: 'mailto:1278032416@qq.com',
+    },
+    {
+      name: 'Email',
+      icon: 'i-ri-mail-fill',
+      tip: '来封 Email ~',
+      url: 'mailto:1278032416@qq.com',
+    },{
+      name: 'Email',
+      icon: 'i-ri-mail-fill',
+      tip: '来封 Email ~',
+      url: 'mailto:1278032416@qq.com',
+    },{
+      name: 'Email',
+      icon: 'i-ri-mail-fill',
+      tip: '来封 Email ~',
+      url: 'mailto:1278032416@qq.com',
+    },{
+      name: 'Email',
+      icon: 'i-ri-mail-fill',
+      tip: '来封 Email ~',
+      url: 'mailto:1278032416@qq.com',
+    },{
+      name: 'Email',
+      icon: 'i-ri-mail-fill',
+      tip: '来封 Email ~',
+      url: 'mailto:1278032416@qq.com',
+    },{
+      name: 'Email',
+      icon: 'i-ri-mail-fill',
+      tip: '来封 Email ~',
+      url: 'mailto:1278032416@qq.com',
+    },{
+      name: 'Email',
+      icon: 'i-ri-mail-fill',
+      tip: '来封 Email ~',
+      url: 'mailto:1278032416@qq.com',
+    },
   ], // 社交链接
   website: [
     {

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import {Navigation} from 'swiper/modules'
+
 const config = useAppConfig()
 const social = config.social || []
 const swiperSlideGroup = computed(() => {
@@ -13,14 +15,18 @@ const tip = ref<string | undefined>('')
 
 <template>
   <div class="social-module my-5 max-w-md w-full rounded-3 h-12 ">
-    <Swiper
-      :modules="[SwiperNavigation]"
-      :navigation="{ nextEl: '.swiper-button-next',
-                     prevEl: '.swiper-button-prev' }"
-      :space-between="40"
+    <swiper-container
+      :space-between="20"
+      :navigation="{
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }"
+      :mousewheel="true"
       class="swiper-wrapper"
-    >
-      <SwiperSlide v-for="(array, index) in swiperSlideGroup" :key="index">
+      w-full
+      h-full
+     >
+      <swiper-slide v-for="(array, index) in swiperSlideGroup" :key="index" class="swiper-slide">
         <ul flex items-center justify-center h-full>
           <li v-for="(item) in array" :key="item.title" flex items-center justify-center w-25>
             <a
@@ -38,8 +44,8 @@ const tip = ref<string | undefined>('')
             </div>
           </li>
         </ul>
-      </SwiperSlide>
-    </Swiper>
+      </swiper-slide>
+    </swiper-container>
     <div v-if="swiperSlideGroup.length > 1" class="swiper-button-prev swiper-button-next-ico" />
     <div v-if="swiperSlideGroup.length > 1" class="swiper-button-next swiper-button-prev-ico" />
   </div>
@@ -59,8 +65,8 @@ const tip = ref<string | undefined>('')
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
-  .swiper-button-prev-ico,
-  .swiper-button-next-ico {
+  .swiper-button-next-ico,
+  .swiper-button-prev-ico {
     -webkit-color: rgba(255, 255, 255, 0.5);
     color: rgba(255, 255, 255, 0.5);
     --swiper-navigation-size: 24px;
