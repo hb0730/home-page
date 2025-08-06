@@ -29,7 +29,7 @@
     "sass": "^1.89.2",
     "typescript": "^5.9.2",
     "unocss": "^66.4.0",
-    "unocss-preset-scrollbar": "^0.3.1",
+    "unocss-preset-scrollbar": "^3.2.0",
     "vite-plugin-remove-console": "^2.2.0"
   },
   "volta": {
