@@ -20,5 +20,11 @@ export default defineNuxtConfig({
       removeConsole(),
     ],
   },
+  ssr:false,
+  vue:{
+    compilerOptions:{
+      isCustomElement: (tag) => tag.includes('swiper')
+    },
+  },
   compatibilityDate: '2024-08-27',
 })

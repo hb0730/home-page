@@ -12,32 +12,25 @@ nuxtApp.hook('page:finish', () => {
   <div class="main" absolute top-0 left-0 w-full h-full>
     <div class="container" px-3 p-t-1 ma p-b-15 w-full h-full flex items-center justify-center>
       <div v-if="windowStore.isSmallScreen.value" w-full h-full>
-        <Swiper
-          :modules="[SwiperMousewheel]"
-          :slides-pre-view="1"
-          :space-between="40"
-          :mousewheel="true"
-          :centered-slides="true"
-          class="w-full h-full "
-        >
-          <SwiperSlide>
+        <swiper-container :slide-pre-view="1" :space-between="40" :mousewheel="true" :centered-slides="true"  class="w-full h-full ">
+          <swiper-slide>
             <div h-full flex items-center flex-col justify-center overflow-auto scrollbar-none>
               <ModulesProfile />
               <ModulesSocial />
             </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div h-full flex items-center flex-col justify-center overflow-auto scrollbar-none>
+          </swiper-slide>
+          <swiper-slide>
+           <div h-full flex items-center flex-col justify-center overflow-auto scrollbar-none>
               <ModulesTimes />
             </div>
-          </SwiperSlide>
-          <SwiperSlide>
+          </swiper-slide>
+          <swiper-slide>
             <div h-full flex items-center flex-col justify-center overflow-auto scrollbar-none>
               <ModulesTimeCapsule />
               <ModulesSites />
             </div>
-          </SwiperSlide>
-        </Swiper>
+          </swiper-slide>
+        </swiper-container>
       </div>
       <div v-else w-full h-full flex justify-center items-center>
         <div class="left" flex-1 overflow-auto scrollbar-none>
@@ -45,19 +38,14 @@ nuxtApp.hook('page:finish', () => {
           <ModulesSocial />
         </div>
         <div class="right w-50%" ml-3>
-          <Swiper
-            :modules="[SwiperMousewheel]"
-            :slides-pre-view="1"
-            :space-between="40"
-            :mousewheel="true"
-          >
-            <SwiperSlide>
+          <swiper-container :mousewheel="true" :slide-pre-view="1" :space-between="40" >
+            <swiper-slide>
               <ModulesTimes />
-            </SwiperSlide>
-            <SwiperSlide>
+            </swiper-slide>
+            <swiper-slide>
               <ModulesTimeCapsule />
-            </SwiperSlide>
-          </Swiper>
+            </swiper-slide>
+          </swiper-container>
           <div class="mt-3" overflow-auto scrollbar-none>
             <WidgetSites />
           </div>

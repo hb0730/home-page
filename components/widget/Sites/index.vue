@@ -17,20 +17,17 @@ const siteLinkArray = computed(() => {
       <Icon class="i-ri-link " />
       <span class="text-size-xl ml-2 text-shadow-[0_0_5px_rgba(0,0,0,.3137254902)]">网站列表</span>
     </div>
-    <Swiper
+    <swiper-container
       v-if="siteLinks.length > 0"
-      :modules="[SwiperPagination, SwiperMousewheel]"
-      :slides-pre-view="1"
+      :slides-per-view="1"
       :space-between="40"
-      :pagination="{
-        el: '.swiper-pagination',
-        clickable: true,
-        bulletElement: 'div',
-      }"
+      :pagination="{el:'.swiper-pagination', clickable: true,bulletElement: 'div'}"
       :mousewheel="true"
       :nested="true"
+      ref="containerRef"
+      class="swiper"
     >
-      <SwiperSlide v-for="site in siteLinkArray" :key="site">
+      <swiper-slide v-for="(site,index) in siteLinkArray" :key="index">
         <!-- 宫格 一行三个 -->
         <div class="grid grid-cols-3 gap-4">
           <a
@@ -44,14 +41,14 @@ const siteLinkArray = computed(() => {
             <span class="ml-2 text-size-[0.85rem] text-shadow-[0_0_5px_#00000050] text-hidden">{{ item.title }}</span>
           </a>
         </div>
-      </SwiperSlide>
-      <div class="swiper-pagination" />
-    </Swiper>
+      </swiper-slide>
+    </swiper-container>
+    <div class="swiper-pagination" />
   </div>
 </template>
 
 <style lang="scss" scoped>
- .swiper {
+ .sites {
   .swiper-pagination {
     position: static;
     margin-top: 4px;

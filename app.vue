@@ -2,6 +2,8 @@
 import 'uno.css'
 import '~/assets/css/font.scss'
 import '~/assets/css/main.scss'
+import 'swiper/swiper-bundle.css'
+
 
 const config = useAppConfig()
 
