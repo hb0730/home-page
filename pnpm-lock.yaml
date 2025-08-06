@@ -23,7 +23,7 @@ importers:
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^5.1.0
-        version: 5.1.0(@vue/compiler-sfc@3.5.18)(eslint-plugin-format@0.1.3(eslint@9.32.0(jiti@2.5.1)))(eslint@9.32.0(jiti@2.5.1))(typescript@5.9.2)
+        version: 5.1.0(@vue/compiler-sfc@3.5.18)(eslint-plugin-format@1.0.1(eslint@9.32.0(jiti@2.5.1)))(eslint@9.32.0(jiti@2.5.1))(typescript@5.9.2)
       '@iconify-json/fa6-brands':
         specifier: ^1.2.6
         version: 1.2.6
@@ -40,8 +40,8 @@ importers:
         specifier: ^9.32.0
         version: 9.32.0(jiti@2.5.1)
       eslint-plugin-format:
-        specifier: ^0.1.3
-        version: 0.1.3(eslint@9.32.0(jiti@2.5.1))
+        specifier: ^1.0.1
+        version: 1.0.1(eslint@9.32.0(jiti@2.5.1))
       nuxt-swiper:
         specifier: ^1.2.2
         version: 1.2.2(magicast@0.3.5)(rollup@4.46.2)
@@ -387,8 +387,8 @@ packages:
   '@dprint/markdown@0.17.8':
     resolution: {integrity: sha512-ukHFOg+RpG284aPdIg7iPrCYmMs3Dqy43S1ejybnwlJoFiW02b+6Bbr5cfZKFRYNP3dKGM86BqHEnMzBOyLvvA==}
 
-  '@dprint/toml@0.6.3':
-    resolution: {integrity: sha512-zQ42I53sb4WVHA+5yoY1t59Zk++Ot02AvUgtNKLzTT8mPyVqVChFcePa3on/xIoKEgH+RoepgPHzqfk9837YFw==}
+  '@dprint/toml@0.6.4':
+    resolution: {integrity: sha512-bZXIUjxr0LIuHWshZr/5mtUkOrnh0NKVZEF6ACojW5z7zkJu7s9sV2mMXm8XQDqN4cJzdHYUYzUyEGdfciaLJA==}
 
   '@emnapi/core@1.4.5':
     resolution: {integrity: sha512-XsLw1dEOpkSX/WucdqUhPWP7hDxSvZiY+fsUC14h+FtQ2Ifni4znbBt8punRX+Uj2JG/uDb8nEHVKvrVlvdZ5Q==}
@@ -3218,8 +3218,8 @@ packages:
     peerDependencies:
       eslint: '*'
 
-  eslint-parser-plain@0.1.0:
-    resolution: {integrity: sha512-oOeA6FWU0UJT/Rxc3XF5Cq0nbIZbylm7j8+plqq0CZoE6m4u32OXJrR+9iy4srGMmF6v6pmgvP1zPxSRIGh3sg==}
+  eslint-parser-plain@0.1.1:
+    resolution: {integrity: sha512-KRgd6wuxH4U8kczqPp+Oyk4irThIhHWxgFgLDtpgjUGVIS3wGrJntvZW/p6hHq1T4FOwnOtCNkvAI4Kr+mQ/Hw==}
 
   eslint-plugin-antfu@3.1.1:
     resolution: {integrity: sha512-7Q+NhwLfHJFvopI2HBZbSxWXngTwBLKxW1AGXLr2lEGxcEIK/AsDs8pn8fvIizl5aZjBbVbVK5ujmMpBe4Tvdg==}
@@ -3237,8 +3237,8 @@ packages:
     peerDependencies:
       eslint: '>=8'
 
-  eslint-plugin-format@0.1.3:
-    resolution: {integrity: sha512-vTmshuv1iMfmcM1HADnyhae5MBBGlJZBZyZ+ybtXCEzRe3nRhUvLX+6rAvsEfcdK6a2pqpLs/F530dXKvfQqYQ==}
+  eslint-plugin-format@1.0.1:
+    resolution: {integrity: sha512-Tdns+CDjS+m7QrM85wwRi2yLae88XiWVdIOXjp9mDII0pmTBQlczPCmjpKnjiUIY3yPZNLqb5Ms/A/JXcBF2Dw==}
     peerDependencies:
       eslint: ^8.40.0 || ^9.0.0
 
@@ -6152,7 +6152,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@antfu/eslint-config@5.1.0(@vue/compiler-sfc@3.5.18)(eslint-plugin-format@0.1.3(eslint@9.32.0(jiti@2.5.1)))(eslint@9.32.0(jiti@2.5.1))(typescript@5.9.2)':
+  '@antfu/eslint-config@5.1.0(@vue/compiler-sfc@3.5.18)(eslint-plugin-format@1.0.1(eslint@9.32.0(jiti@2.5.1)))(eslint@9.32.0(jiti@2.5.1))(typescript@5.9.2)':
     dependencies:
       '@antfu/install-pkg': 1.1.0
       '@clack/prompts': 0.11.0
@@ -6192,7 +6192,7 @@ snapshots:
       vue-eslint-parser: 10.2.0(eslint@9.32.0(jiti@2.5.1))
       yaml-eslint-parser: 1.3.0
     optionalDependencies:
-      eslint-plugin-format: 0.1.3(eslint@9.32.0(jiti@2.5.1))
+      eslint-plugin-format: 1.0.1(eslint@9.32.0(jiti@2.5.1))
     transitivePeerDependencies:
       - '@eslint/json'
       - '@vue/compiler-sfc'
@@ -6607,7 +6607,7 @@ snapshots:
 
   '@dprint/markdown@0.17.8': {}
 
-  '@dprint/toml@0.6.3': {}
+  '@dprint/toml@0.6.4': {}
 
   '@emnapi/core@1.4.5':
     dependencies:
@@ -9643,7 +9643,7 @@ snapshots:
     dependencies:
       eslint: 9.32.0(jiti@2.5.1)
 
-  eslint-parser-plain@0.1.0: {}
+  eslint-parser-plain@0.1.1: {}
 
   eslint-plugin-antfu@3.1.1(eslint@9.32.0(jiti@2.5.1)):
     dependencies:
@@ -9661,14 +9661,14 @@ snapshots:
       eslint: 9.32.0(jiti@2.5.1)
       eslint-compat-utils: 0.5.1(eslint@9.32.0(jiti@2.5.1))
 
-  eslint-plugin-format@0.1.3(eslint@9.32.0(jiti@2.5.1)):
+  eslint-plugin-format@1.0.1(eslint@9.32.0(jiti@2.5.1)):
     dependencies:
       '@dprint/formatter': 0.3.0
       '@dprint/markdown': 0.17.8
-      '@dprint/toml': 0.6.3
+      '@dprint/toml': 0.6.4
       eslint: 9.32.0(jiti@2.5.1)
       eslint-formatting-reporter: 0.0.0(eslint@9.32.0(jiti@2.5.1))
-      eslint-parser-plain: 0.1.0
+      eslint-parser-plain: 0.1.1
       prettier: 3.4.2
       synckit: 0.9.2
 
