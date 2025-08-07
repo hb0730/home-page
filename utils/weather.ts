@@ -29,7 +29,7 @@ export interface Weather {
  * Get the weather for a given location
  */
 export default function getWeather(): Promise<Weather> {
-  return vvhan();
+  return vvhan()
 }
 
 /**
@@ -66,7 +66,7 @@ async function ownthink(): Promise<Weather> {
  */
 async function vvhan(): Promise<Weather> {
   const response: any = await $fetch('https://api.vvhan.com/api/weather', { ignoreResponseError: true })
-  if(!response?.success){
+  if (!response?.success) {
     return {
       province: '',
       city: '',
@@ -78,8 +78,8 @@ async function vvhan(): Promise<Weather> {
   }
   const res = response.data
   return {
-    province: res.province??'',
-    city: response.city??'',
+    province: res.province ?? '',
+    city: response.city ?? '',
     weather: res.type,
     temperature: `${res.high} ~ ${res.low}`.replaceAll('°C', ''),
     wind: res.fengxiang,
