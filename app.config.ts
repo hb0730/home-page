@@ -7,7 +7,7 @@ export default defineAppConfig({
   logo: 'https://cravatar.cn/avatar/8b21c82521c08425c4426b156ff80623?size=256', // 网站logo
   icon: 'https://cravatar.cn/avatar/8b21c82521c08425c4426b156ff80623?size=256', // 网站图标
   startDate: '2024-03-05', // 网站创建日期
-  icp: '', // 备案号,
+  icp: '湘ICP备2025134088号', // 备案号,
   social: [
     {
       name: 'Github',
@@ -20,7 +20,7 @@ export default defineAppConfig({
       icon: 'i-ri-mail-fill',
       tip: '来封 Email ~',
       url: 'mailto:1278032416@qq.com',
-    }
+    },
   ], // 社交链接
   website: [
     {
