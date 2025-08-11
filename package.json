@@ -14,21 +14,21 @@
   "dependencies": {
     "@nuxt/image": "^1.11.0",
     "@vueuse/nuxt": "^13.6.0",
-    "nuxt": "^4.0.2",
+    "nuxt": "^4.0.3",
     "vue": "^3.5.18"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.1.0",
+    "@antfu/eslint-config": "^5.2.0",
     "@iconify-json/fa6-brands": "^1.2.6",
     "@iconify-json/ri": "^1.2.5",
-    "@unocss/nuxt": "66.3.3",
+    "@unocss/nuxt": "66.4.1",
     "dayjs": "^1.11.13",
     "eslint": "^9.32.0",
     "eslint-plugin-format": "^1.0.1",
     "nuxt-swiper": "^2.0.1",
-    "sass": "^1.89.2",
+    "sass": "^1.90.0",
     "typescript": "^5.9.2",
-    "unocss": "66.3.3",
+    "unocss": "66.4.1",
     "unocss-preset-scrollbar": "^3.2.0",
     "vite-plugin-remove-console": "^2.2.0"
   },
