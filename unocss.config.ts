@@ -59,5 +59,6 @@ export default defineConfig({
     'i-ri-file-user-fill',
     'i-ri-file-user-line',
     'i-fa6-brands-docker',
+    'i-mdi-heart-pulse',
   ],
 })

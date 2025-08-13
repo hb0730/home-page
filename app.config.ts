@@ -37,7 +37,7 @@ export default defineAppConfig({
     {
       icon: 'i-ri-file-user-fill',
       title: '个人简历',
-      url: 'https://user.hb0730.me',
+      url: 'https://resume.hb0730.me',
     },
     {
       icon: 'i-ri-mail-fill',
@@ -45,19 +45,24 @@ export default defineAppConfig({
       url: 'https://mail.uhoox.cc',
     },
     {
-      icon: 'i-ri-cloud-fill',
-      title: '网盘',
-      url: 'https://s0.hb0730.me',
+      icon: 'i-mdi-heart-pulse',
+      title: '心情树',
+      url: 'https://mood.hb0730.me',
     },
-    {
-      icon: 'i-ri-heart-pulse-fill',
-      title: '站点检测',
-      url: 'https://status.hb0730.me',
-    },
-    {
-      icon: 'i-fa6-brands-docker',
-      title: 'Docker Proxy',
-      url: 'https://docker.uhoox.ink',
-    },
+    // {
+    //   icon: 'i-ri-cloud-fill',
+    //   title: '网盘',
+    //   url: 'https://s0.hb0730.me',
+    // },
+    // {
+    //   icon: 'i-ri-heart-pulse-fill',
+    //   title: '站点检测',
+    //   url: 'https://status.hb0730.me',
+    // },
+    // {
+    //   icon: 'i-fa6-brands-docker',
+    //   title: 'Docker Proxy',
+    //   url: 'https://docker.uhoox.ink',
+    // },
   ], // 网站列表
 })
