@@ -49,6 +49,11 @@ export default defineAppConfig({
       title: '心情树',
       url: 'https://mood.hb0730.me',
     },
+    {
+      icon: 'i-mdi-book-open-outline',
+      title: '诗词',
+      url: 'https://poetry.hb0730.me',
+    },
     // {
     //   icon: 'i-ri-cloud-fill',
     //   title: '网盘',
