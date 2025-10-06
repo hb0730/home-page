@@ -28,7 +28,7 @@
     "eslint-plugin-format": "^1.0.2",
     "nuxt-swiper": "^2.0.1",
     "sass": "^1.93.2",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "unocss": "^66.5.2",
     "unocss-preset-scrollbar": "^3.2.0",
     "vite-plugin-remove-console": "^2.2.0"
