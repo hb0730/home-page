@@ -14,8 +14,8 @@
   "dependencies": {
     "@nuxt/image": "^1.11.0",
     "@vueuse/nuxt": "^13.9.0",
-    "nuxt": "^4.4.2",
-    "vue": "^3.5.32"
+    "nuxt": "^4.4.4",
+    "vue": "^3.5.34"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.4.1",
