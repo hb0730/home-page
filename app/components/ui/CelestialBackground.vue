@@ -187,6 +187,8 @@ onMounted(() => {
     window.removeEventListener('resize', resize)
   })
 })
+
+const activeSeason = useState<string>('activeSeason', () => 'spring')
 </script>
 
 <template>
@@ -195,5 +197,57 @@ onMounted(() => {
     <!-- 极光星云：高对比度的三色流光，让背景极为绚丽 -->
     <div class="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(circle_at_15%_25%,rgba(56,189,248,0.18),transparent_45%),radial-gradient(circle_at_85%_75%,rgba(217,70,239,0.15),transparent_45%),radial-gradient(circle_at_50%_50%,rgba(244,63,94,0.08),transparent_60%)]" />
     <div class="pointer-events-none absolute inset-0 z-2 bg-gradient-to-b from-transparent to-[#020510]/50" />
+
+    <!-- 全局季节特效层 -->
+    <div class="pointer-events-none absolute inset-0 z-10 overflow-hidden">
+      <!-- 冬季大雪 -->
+      <template v-if="activeSeason === 'winter'">
+        <div v-for="i in 30" :key="`w-${i}`" class="absolute bg-white rounded-full anim-snow-global" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 4 + 2}px`, height: `${Math.random() * 4 + 2}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 3 + 5}s` }"></div>
+      </template>
+      
+      <!-- 春季落樱 -->
+      <template v-if="activeSeason === 'spring'">
+        <div v-for="i in 25" :key="`s-${i}`" class="absolute bg-pink-300/60 rounded-full anim-blossom-global blur-[1px]" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 8 + 4}px`, height: `${Math.random() * 8 + 4}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 4 + 6}s` }"></div>
+      </template>
+      
+      <!-- 秋季落叶 -->
+      <template v-if="activeSeason === 'autumn'">
+        <div v-for="i in 20" :key="`a-${i}`" class="absolute bg-amber-500/50 rounded-sm anim-leaf-global" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 6 + 4}px`, height: `${Math.random() * 10 + 6}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 4 + 5}s` }"></div>
+      </template>
+      
+      <!-- 夏季热浪光晕 -->
+      <template v-if="activeSeason === 'summer'">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(251,191,36,0.15),transparent_60%)] animate-pulse" style="animation-duration: 4s;"></div>
+      </template>
+    </div>
   </div>
 </template>
+
+<style scoped>
+/* 全局降雪 */
+@keyframes anim-snowfall-global {
+  0% { transform: translateY(-20vh) translateX(0); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(120vh) translateX(10vw); opacity: 0; }
+}
+.anim-snow-global { animation: anim-snowfall-global linear infinite; top: -10px; }
+
+/* 全局落樱 (从下往上飘或者从上往下飘) */
+@keyframes anim-blossom-global {
+  0% { transform: translateY(120vh) translateX(0) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(-20vh) translateX(20vw) rotate(360deg); opacity: 0; }
+}
+.anim-blossom-global { animation: anim-blossom-global ease-in-out infinite; bottom: -10px; }
+
+/* 全局落叶 */
+@keyframes anim-leaf-global {
+  0% { transform: translateY(-20vh) translateX(0) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(120vh) translateX(-15vw) rotate(720deg); opacity: 0; }
+}
+.anim-leaf-global { animation: anim-leaf-global ease-in-out infinite; top: -10px; }
+</style>

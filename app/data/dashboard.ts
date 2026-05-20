@@ -41,8 +41,8 @@ const siteItems: DashboardItem[] = sites.map(s => ({
     ...s,
     // 所有 Site 默认占用 1x1 格子，QR 将通过 Hover 放大展示
     span: s.span || 'md:col-span-1',
-    color: s.color || getNextColor()
-  }
+    color: s.color || getNextColor(),
+  },
 }))
 
 // 3. 固定的个性化小组件 (Widgets)
@@ -50,56 +50,13 @@ const widgetItems: DashboardItem[] = [
   {
     type: 'widget',
     data: {
-      id: 'system-status',
-      title: 'System Ready',
-      type: 'status',
-      color: 'bg-sky-400',
-      span: 'md:col-span-1',
-      variant: 'circle'
-    } as any
+      id: 'seasonal-widget',
+      title: '四季更替',
+      type: 'seasons',
+      color: 'bg-pink-500',
+      span: 'md:col-span-2',
+    } as any,
   },
-  {
-    type: 'widget',
-    data: {
-      id: 'daily-quote',
-      title: 'Quote',
-      content: 'Simplicity is the ultimate sophistication.',
-      type: 'quote',
-      span: 'md:col-span-1',
-      variant: 'ghost'
-    } as any
-  },
-  // --- ROW 5 Quirky Widgets ---
-  {
-    type: 'widget',
-    data: {
-      id: 'music-player',
-      title: 'Now Playing',
-      type: 'music',
-      color: 'bg-indigo-500',
-      span: 'md:col-span-2'
-    } as any
-  },
-  {
-    type: 'widget',
-    data: {
-      id: 'hacker-terminal',
-      title: 'Terminal',
-      type: 'terminal',
-      color: 'bg-emerald-500',
-      span: 'md:col-span-1'
-    } as any
-  },
-  {
-    type: 'widget',
-    data: {
-      id: 'coffee-battery',
-      title: 'Energy',
-      type: 'battery',
-      color: 'bg-amber-500',
-      span: 'md:col-span-1'
-    } as any
-  }
 ]
 
 // 组装最终的 Dashboard 渲染流
