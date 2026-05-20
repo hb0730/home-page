@@ -1,0 +1,14 @@
+# Maven wrapper (we'll use system Maven 3.9+)
+.mvn/wrapper/maven-wrapper.jar
+
+# Node / pnpm workspace
+node_modules/
+
+# Nuxt generated
+.nuxt/
+.output/
+dist/
+.worktrees/
+
+
+.env.production
