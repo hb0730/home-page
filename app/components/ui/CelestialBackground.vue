@@ -198,56 +198,74 @@ const activeSeason = useState<string>('activeSeason', () => 'spring')
     <div class="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(circle_at_15%_25%,rgba(56,189,248,0.18),transparent_45%),radial-gradient(circle_at_85%_75%,rgba(217,70,239,0.15),transparent_45%),radial-gradient(circle_at_50%_50%,rgba(244,63,94,0.08),transparent_60%)]" />
     <div class="pointer-events-none absolute inset-0 z-2 bg-gradient-to-b from-transparent to-[#020510]/50" />
 
-    <!-- 全局季节特效层 -->
-    <div class="pointer-events-none absolute inset-0 z-10 overflow-hidden">
-      <!-- 冬季大雪 -->
+    <!-- 全局季节特效层 (提升 Z-index 并在前景大面积展示) -->
+    <div class="pointer-events-none absolute inset-0 z-20 overflow-hidden">
+      <!-- 冬季大雪：更大、更白、带拖尾的雪花 -->
       <template v-if="activeSeason === 'winter'">
-        <div v-for="i in 30" :key="`w-${i}`" class="absolute bg-white rounded-full anim-snow-global" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 4 + 2}px`, height: `${Math.random() * 4 + 2}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 3 + 5}s` }"></div>
+        <div v-for="i in 60" :key="`w-${i}`" class="absolute bg-white rounded-full anim-snow-global" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 6 + 4}px`, height: `${Math.random() * 6 + 4}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 4 + 4}s`, filter: `blur(${Math.random() * 2}px)` }"></div>
+        <div v-for="i in 20" :key="`w-bg-${i}`" class="absolute bg-blue-100/50 rounded-full anim-snow-global" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 15 + 10}px`, height: `${Math.random() * 15 + 10}px`, animationDelay: `${Math.random() * 7}s`, animationDuration: `${Math.random() * 5 + 7}s`, filter: 'blur(8px)' }"></div>
       </template>
       
-      <!-- 春季落樱 -->
+      <!-- 春季落樱：巨大粉色花瓣、带有专属形状 -->
       <template v-if="activeSeason === 'spring'">
-        <div v-for="i in 25" :key="`s-${i}`" class="absolute bg-pink-300/60 rounded-full anim-blossom-global blur-[1px]" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 8 + 4}px`, height: `${Math.random() * 8 + 4}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 4 + 6}s` }"></div>
+        <div v-for="i in 50" :key="`s-${i}`" class="absolute bg-pink-400/80 rounded-[50%_50%_50%_0] anim-blossom-global shadow-[0_0_15px_rgba(244,114,182,0.6)]" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 15 + 8}px`, height: `${Math.random() * 15 + 8}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 5 + 5}s` }"></div>
+        <div v-for="i in 15" :key="`s-bg-${i}`" class="absolute bg-rose-300/40 rounded-full anim-blossom-global" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 30 + 20}px`, height: `${Math.random() * 30 + 20}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 6 + 8}s`, filter: 'blur(10px)' }"></div>
       </template>
       
-      <!-- 秋季落叶 -->
+      <!-- 秋季落叶：金黄色、带有叶片形状的旋转元素 -->
       <template v-if="activeSeason === 'autumn'">
-        <div v-for="i in 20" :key="`a-${i}`" class="absolute bg-amber-500/50 rounded-sm anim-leaf-global" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 6 + 4}px`, height: `${Math.random() * 10 + 6}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 4 + 5}s` }"></div>
+        <div v-for="i in 40" :key="`a-${i}`" class="absolute bg-amber-500/90 rounded-[50%_0_50%_0] anim-leaf-global shadow-[0_0_20px_rgba(245,158,11,0.5)]" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 20 + 10}px`, height: `${Math.random() * 20 + 10}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 4 + 5}s` }"></div>
+        <div v-for="i in 15" :key="`a-bg-${i}`" class="absolute bg-orange-500/30 rounded-[50%_0] anim-leaf-global" :style="{ left: `${Math.random() * 100}%`, width: `${Math.random() * 40 + 20}px`, height: `${Math.random() * 40 + 20}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 5 + 7}s`, filter: 'blur(8px)' }"></div>
       </template>
       
-      <!-- 夏季热浪光晕 -->
+      <!-- 夏季酷暑：强烈的全屏动态暖色热浪与飞舞的萤火虫 -->
       <template v-if="activeSeason === 'summer'">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(251,191,36,0.15),transparent_60%)] animate-pulse" style="animation-duration: 4s;"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(251,191,36,0.25),transparent_70%)] animate-pulse" style="animation-duration: 3s;"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(249,115,22,0.15),transparent_60%)] animate-pulse" style="animation-duration: 5s;"></div>
+        <div v-for="i in 40" :key="`su-${i}`" class="absolute bg-yellow-300 rounded-full anim-firefly-global shadow-[0_0_15px_#fde047]" :style="{ left: `${Math.random() * 100}%`, bottom: `${Math.random() * 100}%`, width: `${Math.random() * 4 + 2}px`, height: `${Math.random() * 4 + 2}px`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${Math.random() * 3 + 3}s` }"></div>
       </template>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* 全局降雪 */
+/* 全局降雪：增加左右摇摆 */
 @keyframes anim-snowfall-global {
-  0% { transform: translateY(-20vh) translateX(0); opacity: 0; }
-  20% { opacity: 0.8; }
-  80% { opacity: 0.8; }
-  100% { transform: translateY(120vh) translateX(10vw); opacity: 0; }
-}
-.anim-snow-global { animation: anim-snowfall-global linear infinite; top: -10px; }
-
-/* 全局落樱 (从下往上飘或者从上往下飘) */
-@keyframes anim-blossom-global {
-  0% { transform: translateY(120vh) translateX(0) rotate(0deg); opacity: 0; }
-  20% { opacity: 0.6; }
-  80% { opacity: 0.6; }
-  100% { transform: translateY(-20vh) translateX(20vw) rotate(360deg); opacity: 0; }
-}
-.anim-blossom-global { animation: anim-blossom-global ease-in-out infinite; bottom: -10px; }
-
-/* 全局落叶 */
-@keyframes anim-leaf-global {
   0% { transform: translateY(-20vh) translateX(0) rotate(0deg); opacity: 0; }
-  20% { opacity: 0.6; }
-  80% { opacity: 0.6; }
-  100% { transform: translateY(120vh) translateX(-15vw) rotate(720deg); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translateY(50vh) translateX(5vw) rotate(180deg); }
+  90% { opacity: 1; }
+  100% { transform: translateY(120vh) translateX(-5vw) rotate(360deg); opacity: 0; }
 }
-.anim-leaf-global { animation: anim-leaf-global ease-in-out infinite; top: -10px; }
+.anim-snow-global { animation: anim-snowfall-global linear infinite; top: -20px; }
+
+/* 全局落樱：强烈的螺旋上升感 */
+@keyframes anim-blossom-global {
+  0% { transform: translateY(120vh) translateX(0) rotate(0deg) scale(0.5); opacity: 0; }
+  10% { opacity: 1; transform: translateY(100vh) translateX(-5vw) rotate(90deg) scale(1); }
+  50% { transform: translateY(50vh) translateX(10vw) rotate(360deg) scale(1.2); }
+  90% { opacity: 1; }
+  100% { transform: translateY(-20vh) translateX(-10vw) rotate(720deg) scale(0.8); opacity: 0; }
+}
+.anim-blossom-global { animation: anim-blossom-global ease-in-out infinite; bottom: -20px; }
+
+/* 全局落叶：夸张的翻转与掉落 */
+@keyframes anim-leaf-global {
+  0% { transform: translateY(-20vh) translateX(0) rotate(0deg) scale(0.8); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translateY(50vh) translateX(-15vw) rotate(360deg) scale(1.2); }
+  90% { opacity: 1; }
+  100% { transform: translateY(120vh) translateX(10vw) rotate(720deg) scale(1); opacity: 0; }
+}
+.anim-leaf-global { animation: anim-leaf-global ease-in-out infinite; top: -20px; }
+
+/* 夏季萤火虫：快速的不规则闪烁上浮 */
+@keyframes anim-firefly-global {
+  0% { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+  20% { opacity: 1; transform: translateY(-20px) translateX(10px) scale(1.5); }
+  50% { opacity: 0.5; transform: translateY(-50px) translateX(-10px) scale(0.8); }
+  80% { opacity: 1; transform: translateY(-80px) translateX(15px) scale(1.2); }
+  100% { transform: translateY(-120px) translateX(0) scale(0); opacity: 0; }
+}
+.anim-firefly-global { animation: anim-firefly-global ease-in-out infinite; }
 </style>
