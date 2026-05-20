@@ -68,6 +68,37 @@ const widgetItems: DashboardItem[] = [
       span: 'md:col-span-1',
       variant: 'ghost'
     } as any
+  },
+  // --- ROW 5 Quirky Widgets ---
+  {
+    type: 'widget',
+    data: {
+      id: 'music-player',
+      title: 'Now Playing',
+      type: 'music',
+      color: 'bg-indigo-500',
+      span: 'md:col-span-2'
+    } as any
+  },
+  {
+    type: 'widget',
+    data: {
+      id: 'hacker-terminal',
+      title: 'Terminal',
+      type: 'terminal',
+      color: 'bg-emerald-500',
+      span: 'md:col-span-1'
+    } as any
+  },
+  {
+    type: 'widget',
+    data: {
+      id: 'coffee-battery',
+      title: 'Energy',
+      type: 'battery',
+      color: 'bg-amber-500',
+      span: 'md:col-span-1'
+    } as any
   }
 ]
 

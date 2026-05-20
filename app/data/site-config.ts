@@ -20,4 +20,24 @@ export const siteConfig: SiteConfig = {
     },
     { name: 'Email', icon: 'i-ri-mail-fill', tip: '来封 Email ~', url: 'mailto:1278032416@qq.com' },
   ],
+  widgets: {
+    music: {
+      title: 'Lofi Coding Beats',
+      artist: 'Chill Vibes',
+      url: 'https://open.spotify.com/'
+    },
+    terminal: {
+      user: 'hb0730',
+      host: 'server',
+      command: './start.sh',
+      logs: ['Initializing core systems...', 'System OK.']
+    },
+    battery: {
+      level: 85,
+      label: 'Caffeine Level'
+    },
+    seasons: {
+      label: 'Cycle of Time'
+    }
+  }
 }

@@ -38,28 +38,28 @@ function onMouseMove(e: MouseEvent) {
         class="mb-8 block h-20 w-20 rounded-3xl object-cover shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all duration-500 group-hover:(scale-110 rotate-3 shadow-[0_0_80px_rgba(255,255,255,0.4)])"
       >
 
-      <h1 class="mb-4 text-4xl font-black tracking-tight text-white transition-colors duration-500 group-hover:(text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60)">
+      <h1 class="mb-4 text-4xl font-black tracking-tight text-white transition-colors duration-500 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-white hover:to-white/60">
         {{ siteConfig.author }}.
       </h1>
-      <p class="mb-12 text-sm font-medium leading-relaxed text-slate-400 transition-colors duration-500 group-hover:text-slate-200">
+      <p class="mb-12 text-sm font-medium leading-relaxed text-slate-400 transition-colors duration-500 hover:text-slate-200">
         {{ siteConfig.description }}
       </p>
 
       <TimeDisplay />
-    </div>
-    <!-- Configurable Socials -->
-    <div class="relative z-10 mt-12 flex flex-wrap gap-4">
-      <a
-        v-for="social in siteConfig.socials"
-        :key="social.name"
-        :href="social.url"
+      </div>
+      <!-- Configurable Socials -->
+      <div class="relative z-10 mt-12 flex flex-wrap gap-4">
+      <a 
+        v-for="social in siteConfig.socials" 
+        :key="social.name" 
+        :href="social.url" 
         :title="social.tip"
-        target="_blank"
+        target="_blank" 
         rel="noopener noreferrer"
-        class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-xl transition-all hover:(-translate-y-2 scale-110 bg-white text-black shadow-[0_10px_20px_rgba(255,255,255,0.2)])"
+        class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-xl transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:bg-white hover:text-black hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)]"
       >
-        <i :class="social.icon" />
+        <i :class="social.icon"></i>
       </a>
-    </div>
+      </div>
   </aside>
 </template>

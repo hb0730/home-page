@@ -5,7 +5,7 @@ export const sites: SiteItem[] = [
     title: 'Blog',
     description: '记录一些个人的想法和生活',
     icon: 'i-ri-article-fill',
-    href: 'https://hb0730.me/blog',
+    href: 'https://blog.hb0730.me',
     category: '个人博客',
   },
   {

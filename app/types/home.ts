@@ -45,4 +45,34 @@ export interface SiteConfig extends Item {
     tip: string
     url: string
   }[]
+  widgets?: {
+    music?: {
+      title: string
+      artist: string
+      url?: string
+    }
+    terminal?: {
+      user: string
+      host: string
+      command: string
+      logs: string[]
+    }
+    battery?: {
+      level: number
+      label: string
+    }
+    seasons?: {
+      label: string
+    }
+  }
+}
+
+export interface WidgetItem extends Item {
+  id: string
+  title: string
+  description?: string
+  type: 'clock' | 'status' | 'note' | 'links' | 'custom' | 'lab' | 'quote' | 'music' | 'terminal' | 'battery' | 'seasons'
+  span?: string
+  color?: string
+  content?: string
 }

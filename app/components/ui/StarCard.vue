@@ -112,11 +112,11 @@ onUnmounted(() => {
 const variantClasses = computed(() => {
   switch (props.variant) {
     case 'ghost':
-      return 'border-transparent bg-transparent p-4 hover:(bg-white/5 border-white/10)'
+      return 'border-transparent bg-transparent p-4 hover:bg-white/5 hover:border-white/10'
     case 'circle':
-      return 'rounded-full border border-white/10 bg-white/5 p-6 hover:(border-white/30 bg-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6),0_0_40px_rgba(255,255,255,0.1)]) shadow-[0_10px_30px_rgba(0,0,0,0.2)]'
+      return 'rounded-full border border-white/10 bg-white/5 p-6 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_40px_80px_rgba(0,0,0,0.6),0_0_40px_rgba(255,255,255,0.1)] shadow-[0_10px_30px_rgba(0,0,0,0.2)]'
     default:
-      return 'rounded-32px border border-white/10 bg-white/5 p-6 hover:(border-white/30 bg-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6),0_0_40px_rgba(255,255,255,0.1)]) shadow-[0_10px_30px_rgba(0,0,0,0.2)]'
+      return 'rounded-32px border border-white/10 bg-white/5 p-6 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_40px_80px_rgba(0,0,0,0.6),0_0_40px_rgba(255,255,255,0.1)] shadow-[0_10px_30px_rgba(0,0,0,0.2)]'
   }
 })
 </script>
@@ -153,7 +153,8 @@ const variantClasses = computed(() => {
         style="top: -20%; right: -20%;"
       />
 
-      <div class="relative z-20 h-full flex flex-col pointer-events-none" style="transform: translateZ(30px);">
+      <!-- 移除 pointer-events-none，使得内部链接可以点击 -->
+      <div class="relative z-20 h-full flex flex-col" style="transform: translateZ(30px);">
         <slot />
       </div>
     </div>

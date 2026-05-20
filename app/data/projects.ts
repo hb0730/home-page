@@ -21,7 +21,7 @@ export const projects: ProjectItem[] = [
   {
     title: 'Home-page',
     description: '个人主页，记录一些个人的想法和生活，展示一些个人的项目和资源',
-    href: 'https:// github.com/hb0730/home-page',
+    href: 'https://github.com/hb0730/home-page',
     tags: ['个人主页', '博客'],
     icon: 'i-ri-home-4-fill',
     status: 'active',
