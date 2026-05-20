@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 核心项目展示组件
+ * 作用：展示主要的开发项目、作品或产品
+ * 特色：支持 Featured 勋章展示、Tag 列表渲染、以及底部渐变装饰
+ */
 import type { DashboardItem } from '~/data/dashboard'
 
 defineProps<{

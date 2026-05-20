@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 站点/链接卡片组件
+ * 作用：展示外部网站链接
+ * 特色：内置“悬停揭秘”逻辑，如果配置了 hoverImage（如二维码），悬停时会全屏展示
+ */
 import type { DashboardItem } from '~/data/dashboard'
 
 defineProps<{

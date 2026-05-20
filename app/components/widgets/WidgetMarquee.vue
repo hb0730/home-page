@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 技术栈走马灯组件
+ * 作用：以无限循环滚动的方式展示技术标签
+ * 特色：纯 CSS 动画实现，支持双向交错滚动，自动适配 siteConfig 中的 tags
+ */
 import { siteConfig } from '~/data/site-config'
 
 const tags = siteConfig.widgets?.marquee?.tags || []

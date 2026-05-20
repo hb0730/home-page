@@ -91,7 +91,7 @@ export interface WidgetItem extends Item {
   id: string
   title: string
   description?: string
-  type: 'clock' | 'status' | 'note' | 'links' | 'custom' | 'lab' | 'quote' | 'music' | 'terminal' | 'battery' | 'seasons' | 'github' | 'moon' | 'coffee' | 'system' | 'progress' | 'marquee'
+  type: 'clock' | 'status' | 'note' | 'links' | 'custom' | 'lab' | 'quote' | 'music' | 'terminal' | 'battery' | 'seasons' | 'github' | 'moon' | 'coffee' | 'system' | 'progress' | 'marquee' | 'hitokoto'
   span?: string
   color?: string
   content?: string

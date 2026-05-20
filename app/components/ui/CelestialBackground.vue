@@ -2,23 +2,27 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
+// 全局季节状态，用于同步不同组件间的季节表现
 const activeSeason = useState<string>('activeSeason', () => 'spring')
 
+/**
+ * 星星对象：用于 3D 星空背景
+ */
 interface Star {
-  x: number
-  y: number
-  z: number
-  size: number
-  color: string
-  glowColor: string
-  opacity: number
-  twinkle: number
+  x: number; y: number; z: number; // 3D 坐标
+  size: number; color: string; glowColor: string; // 视觉属性
+  opacity: number; twinkle: number; // 闪烁属性
 }
 
+/**
+ * 流星类：负责随机生成的划痕动效
+ */
 class Meteor {
   x = 0; y = 0; length = 0; speed = 0; angle = 0; active = false; opacity = 0
   canvasWidth = 0; canvasHeight = 0
   constructor(cw: number, ch: number) { this.canvasWidth = cw; this.canvasHeight = ch }
+  
+  // 重置流星位置到随机点
   reset() {
     this.x = Math.random() * this.canvasWidth + this.canvasWidth * 0.5
     this.y = Math.random() * -this.canvasHeight
@@ -29,6 +33,7 @@ class Meteor {
     this.opacity = 1
   }
 
+  // 每一帧更新坐标和透明度
   update() {
     if (!this.active) {
       if (Math.random() < 0.003)
@@ -40,6 +45,7 @@ class Meteor {
       this.active = false
   }
 
+  // 在 Canvas 上绘制带渐变的流星线
   draw(ctx: CanvasRenderingContext2D) {
     if (!this.active)
       return
@@ -55,6 +61,9 @@ class Meteor {
   }
 }
 
+/**
+ * 季节粒子类：高性能 Canvas 渲染，替代传统的 DOM 动画
+ */
 class SeasonParticle {
   x = 0; y = 0; size = 0; speedX = 0; speedY = 0; angle = 0; spinSpeed = 0; opacity = 0; type = 'snow'
   canvasWidth = 0; canvasHeight = 0
@@ -64,6 +73,7 @@ class SeasonParticle {
     this.reset(true)
   }
 
+  // 根据季节类型初始化粒子物理属性
   reset(randomY = false) {
     this.x = Math.random() * this.canvasWidth
     this.opacity = Math.random() * 0.6 + 0.4
@@ -102,11 +112,13 @@ class SeasonParticle {
     this.y += this.speedY
     this.angle += this.spinSpeed
 
+    // 夏天模拟萤火虫闪烁
     if (this.type === 'summer') {
       this.opacity += (Math.random() > 0.5 ? 0.02 : -0.02)
       this.opacity = Math.max(0, Math.min(0.8, this.opacity))
     }
 
+    // 边界检测：粒子飞出后重新进入
     if (this.type === 'winter' || this.type === 'autumn') {
       if (this.y > this.canvasHeight + 50)
         this.reset()
@@ -122,6 +134,7 @@ class SeasonParticle {
       this.x = -100
   }
 
+  // 根据季节绘制不同的形状
   draw(ctx: CanvasRenderingContext2D) {
     ctx.save()
     ctx.translate(this.x, this.y)
@@ -129,11 +142,13 @@ class SeasonParticle {
     ctx.globalAlpha = this.opacity
 
     if (this.type === 'winter') {
+      // 绘制雪花
       ctx.fillStyle = '#ffffff'
       ctx.shadowBlur = 15; ctx.shadowColor = '#ffffff'
       ctx.beginPath(); ctx.arc(0, 0, this.size, 0, Math.PI * 2); ctx.fill()
     }
     else if (this.type === 'spring') {
+      // 绘制樱花瓣
       ctx.fillStyle = '#f472b6'
       ctx.shadowBlur = 20; ctx.shadowColor = '#fbcfe8'
       ctx.beginPath()
@@ -145,6 +160,7 @@ class SeasonParticle {
       ctx.fill()
     }
     else if (this.type === 'autumn') {
+      // 绘制秋叶
       ctx.fillStyle = '#f59e0b'
       ctx.shadowBlur = 20; ctx.shadowColor = '#fcd34d'
       // simple leaf shape
@@ -153,6 +169,7 @@ class SeasonParticle {
       ctx.fill()
     }
     else if (this.type === 'summer') {
+      // 绘制萤火虫光斑
       ctx.fillStyle = '#fde047'
       ctx.shadowBlur = 15; ctx.shadowColor = '#fef08a'
       ctx.beginPath(); ctx.arc(0, 0, this.size, 0, Math.PI * 2); ctx.fill()
@@ -174,10 +191,11 @@ onMounted(() => {
   let seasonParticles: SeasonParticle[] = []
 
   const numStars = 600
-  const focalLength = 1000
-  const rotateSpeedX = 0.0002
+  const focalLength = 1000 // 3D 投影焦距
+  const rotateSpeedX = 0.0002 // 3D 旋转速度
   const rotateSpeedY = 0.0004
 
+  // 鼠标交互状态
   let targetMouseX = 0; let targetMouseY = 0
   let mouseX = 0; let mouseY = 0
 
@@ -192,6 +210,7 @@ onMounted(() => {
     canvas.height = window.innerHeight
   }
 
+  // 初始化 3D 恒星背景
   const initStars = () => {
     stars = Array.from({ length: numStars }, () => {
       const colors = [{ c: '#ffffff', g: '#ffffff' }, { c: '#e0f2fe', g: '#38bdf8' }, { c: '#fae8ff', g: '#d946ef' }, { c: '#fefce8', g: '#facc15' }]
@@ -210,6 +229,7 @@ onMounted(() => {
     meteors = Array.from({ length: 3 }, () => new Meteor(canvas.width, canvas.height))
   }
 
+  // 当全局季节改变时，同步更新 Canvas 粒子
   let currentParticleType = ''
   const syncSeasonParticles = () => {
     if (activeSeason.value !== currentParticleType) {
@@ -222,9 +242,10 @@ onMounted(() => {
   let heatPulse = 0
   const animate = () => {
     syncSeasonParticles()
-    ctx.fillStyle = '#020510'
+    ctx.fillStyle = '#020510' // 清除画布，使用暗夜蓝作为底色
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
+    // 夏日特有的全局热浪呼吸感
     if (activeSeason.value === 'summer') {
       heatPulse += 0.02
       const grad = ctx.createRadialGradient(canvas.width / 2, canvas.height, 0, canvas.width / 2, canvas.height, canvas.width)
@@ -233,10 +254,13 @@ onMounted(() => {
       ctx.fillStyle = grad; ctx.fillRect(0, 0, canvas.width, canvas.height)
     }
 
+    // 鼠标视差平滑缓动
     mouseX += (targetMouseX - mouseX) * 0.05
     mouseY += (targetMouseY - mouseY) * 0.05
 
+    // 绘制并旋转 3D 恒星
     stars.forEach((s) => {
+      // 3D 坐标轴旋转计算
       let cosX = Math.cos(rotateSpeedX); let sinX = Math.sin(rotateSpeedX)
       let y1 = s.y * cosX - s.z * sinX; let z1 = s.z * cosX + s.y * sinX
       s.y = y1; s.z = z1
@@ -249,6 +273,7 @@ onMounted(() => {
       if (s.z <= -focalLength + 100)
         return
 
+      // 3D 投影到 2D 屏幕平面
       let scale = focalLength / (focalLength + s.z)
       let x2d = s.x * scale + canvas.width / 2 - mouseX * scale
       let y2d = s.y * scale + canvas.height / 2 - mouseY * scale
@@ -268,6 +293,7 @@ onMounted(() => {
       ctx.fillStyle = s.color; ctx.beginPath(); ctx.arc(x2d, y2d, radius, 0, Math.PI * 2); ctx.fill()
     })
 
+    // 绘制流星和季节粒子
     meteors.forEach((m) => { m.update(); m.draw(ctx) })
     seasonParticles.forEach((p) => { p.update(); p.draw(ctx) })
     requestAnimationFrame(animate)
@@ -282,6 +308,7 @@ onMounted(() => {
 <template>
   <div class="fixed inset-0 z-0 overflow-hidden bg-[#020510]">
     <canvas ref="canvasRef" class="block w-full h-full" />
+    <!-- 极光星云：高对比度的三色流光，让背景极为绚丽 -->
     <div class="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(circle_at_15%_25%,rgba(56,189,248,0.18),transparent_45%),radial-gradient(circle_at_85%_75%,rgba(217,70,239,0.15),transparent_45%),radial-gradient(circle_at_50%_50%,rgba(244,63,94,0.08),transparent_60%)]" />
     <div class="pointer-events-none absolute inset-0 z-2 bg-gradient-to-b from-transparent to-[#020510]/50" />
   </div>

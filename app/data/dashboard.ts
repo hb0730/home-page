@@ -2,12 +2,17 @@ import type { ProjectItem, SiteItem, WidgetItem } from '~/types/home'
 import { projects } from './projects'
 import { sites } from './sites'
 
-export type DashboardItem
-  = | { type: 'project', data: ProjectItem }
-    | { type: 'site', data: SiteItem }
-    | { type: 'widget', data: WidgetItem }
+/**
+ * 仪表盘项联合类型
+ */
+export type DashboardItem = 
+  | { type: 'project', data: ProjectItem }
+  | { type: 'site', data: SiteItem }
+  | { type: 'widget', data: WidgetItem }
 
-// 霓虹色彩库，用于为没有指定颜色的卡片自动分配发光色
+/**
+ * 霓虹色彩库：用于为卡片自动分配视觉氛围色
+ */
 const colors = [
   'bg-blue-500',
   'bg-emerald-500',
@@ -20,33 +25,48 @@ const colors = [
 ]
 
 let colorIndex = 0
+// 获取循环色彩的辅助函数
 const getNextColor = () => colors[colorIndex++ % colors.length]
 
-// 1. 自动解析并映射 Projects
+/**
+ * 1. 自动映射 Projects：将项目数据转换为 Bento 卡片项
+ */
 const projectItems: DashboardItem[] = projects.map(p => ({
   type: 'project',
   data: {
     ...p,
-    // 如果没有配置 span，则根据 featured 状态自动分配 2x2 或 1x2
+    // 布局规则：Featured 项目占 2x2，普通占 1x2 (纵向)
     span: p.span || (p.featured ? 'md:col-span-2 md:row-span-2' : 'md:row-span-2'),
-    // 如果没有配置颜色，则自动从色彩库中取一个
     color: p.color || getNextColor(),
   },
 }))
 
-// 2. 自动解析并映射 Sites
+/**
+ * 2. 自动映射 Sites：将个人站点转换为 1x1 磁贴
+ */
 const siteItems: DashboardItem[] = sites.map(s => ({
   type: 'site',
   data: {
     ...s,
-    // 所有 Site 默认占用 1x1 格子，QR 将通过 Hover 放大展示
     span: s.span || 'md:col-span-1',
     color: s.color || getNextColor(),
   },
 }))
 
-// 3. 固定的个性化小组件 (Widgets)
+/**
+ * 3. 固定的个性化小组件配置阵列
+ */
 const widgetItems: DashboardItem[] = [
+  {
+    type: 'widget',
+    data: {
+      id: 'github-graph',
+      title: 'GitHub Activity',
+      type: 'github',
+      color: 'bg-emerald-500',
+      span: 'md:col-span-4 md:row-span-2', // 核心数据看板，独占整行
+    } as any,
+  },
   {
     type: 'widget',
     data: {
@@ -55,16 +75,6 @@ const widgetItems: DashboardItem[] = [
       type: 'seasons',
       color: 'bg-pink-500',
       span: 'md:col-span-1',
-    } as any,
-  },
-  {
-    type: 'widget',
-    data: {
-      id: 'github-graph',
-      title: 'GitHub Activity',
-      type: 'github',
-      color: 'bg-emerald-500',
-      span: 'md:col-span-4 md:row-span-2', // 占据整行且高度加倍
     } as any,
   },
   {
@@ -80,21 +90,11 @@ const widgetItems: DashboardItem[] = [
   {
     type: 'widget',
     data: {
-      id: 'coffee-tracker',
-      title: 'Coffee',
-      type: 'coffee',
-      color: 'bg-orange-600',
-      span: 'md:col-span-1',
-    } as any,
-  },
-  {
-    type: 'widget',
-    data: {
-      id: 'year-progress',
-      title: 'Progress',
-      type: 'progress',
-      color: 'bg-rose-500',
-      span: 'md:col-span-1'
+      id: 'hitokoto-widget',
+      title: '一言',
+      type: 'hitokoto',
+      color: 'bg-purple-400',
+      span: 'md:col-span-2', // 较宽的卡片展示文字
     } as any
   },
   {
@@ -106,21 +106,12 @@ const widgetItems: DashboardItem[] = [
       color: 'bg-amber-400',
       span: 'md:col-span-1'
     } as any
-  },
-  {
-    type: 'widget',
-    data: {
-      id: 'daily-quote',
-      title: 'Quote',
-      content: 'Simplicity is the ultimate sophistication.',
-      type: 'quote',
-      span: 'md:col-span-1',
-      variant: 'ghost'
-    } as any
   }
 ]
 
-// 组装最终的 Dashboard 渲染流
+/**
+ * 组装最终的 Dashboard 渲染流：决定页面内容的展示顺序
+ */
 export const dashboardConfig: DashboardItem[] = [
   ...projectItems,
   ...siteItems,
