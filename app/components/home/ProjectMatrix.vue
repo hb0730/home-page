@@ -1,14 +1,26 @@
 <script setup lang="ts">
+import type { DashboardItem } from '~/data/dashboard'
 import { dashboardConfig } from '~/data/dashboard'
 import StarCard from '../ui/StarCard.vue'
 
-import WidgetBattery from '../widgets/WidgetBattery.vue'
-import WidgetGeneric from '../widgets/WidgetGeneric.vue'
-import WidgetMusic from '../widgets/WidgetMusic.vue'
-import WidgetProject from '../widgets/WidgetProject.vue'
-import WidgetSeasons from '../widgets/WidgetSeasons.vue'
-import WidgetSite from '../widgets/WidgetSite.vue'
-import WidgetTerminal from '../widgets/WidgetTerminal.vue'
+// 【性能与SSR优化】使用 eager: true 一次性静态导入所有 widgets，确保 SSR 渲染一致性，彻底消除 Hydration 警告
+const widgetModules = import.meta.glob('../widgets/Widget*.vue', { eager: true })
+const componentMap: Record<string, any> = {}
+
+// 自动扫描并建立映射
+for (const path in widgetModules) {
+  const match = path.match(/\.\.\/widgets\/Widget(.*)\.vue$/)
+  if (match) {
+    const typeName = match[1].toLowerCase()
+    // eager 模式下直接获取 .default 导出
+    componentMap[typeName] = (widgetModules[path] as any).default
+  }
+}
+
+function resolveComponent(item: DashboardItem) {
+  const type = item.type === 'widget' ? item.data.type : item.type
+  return componentMap[type] || null
+}
 </script>
 
 <template>
@@ -19,20 +31,11 @@ import WidgetTerminal from '../widgets/WidgetTerminal.vue'
         :glow-color="item.data.color"
         :variant="(item.data as any).variant"
         :class="{
-          'items-center justify-center text-center bg-blue-500/5! border-blue-500/20!': item.type === 'widget' && item.data.type === 'status',
-          'items-center justify-center border-dashed! border-white/10!': item.type === 'widget' && item.data.type === 'lab',
-          'bg-gradient-to-br from-white/2 to-transparent': item.type === 'widget' && item.data.type === 'quote',
           'bg-slate-950/80! border-emerald-500/20!': item.type === 'widget' && item.data.type === 'terminal',
         }"
       >
-        <WidgetProject v-if="item.type === 'project'" :item="item as any" />
-        <WidgetSite v-else-if="item.type === 'site'" :item="item as any" />
-
-        <WidgetMusic v-else-if="item.type === 'widget' && item.data.type === 'music'" />
-        <WidgetTerminal v-else-if="item.type === 'widget' && item.data.type === 'terminal'" />
-        <WidgetBattery v-else-if="item.type === 'widget' && item.data.type === 'battery'" />
-        <WidgetSeasons v-else-if="item.type === 'widget' && item.data.type === 'seasons'" :item="item as any" />
-        <WidgetGeneric v-else-if="item.type === 'widget'" :item="item as any" />
+        <!-- 自动识别加载的组件 -->
+        <component :is="resolveComponent(item)" :item="item" />
       </StarCard>
     </template>
   </div>

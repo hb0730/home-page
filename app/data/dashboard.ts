@@ -54,9 +54,70 @@ const widgetItems: DashboardItem[] = [
       title: '四季更替',
       type: 'seasons',
       color: 'bg-pink-500',
-      span: 'md:col-span-2',
+      span: 'md:col-span-1',
     } as any,
   },
+  {
+    type: 'widget',
+    data: {
+      id: 'github-graph',
+      title: 'GitHub Activity',
+      type: 'github',
+      color: 'bg-emerald-500',
+      span: 'md:col-span-4 md:row-span-2', // 占据整行且高度加倍
+    } as any,
+  },
+  {
+    type: 'widget',
+    data: {
+      id: 'moon-phase',
+      title: 'Moon',
+      type: 'moon',
+      color: 'bg-slate-300',
+      span: 'md:col-span-1',
+    } as any,
+  },
+  {
+    type: 'widget',
+    data: {
+      id: 'coffee-tracker',
+      title: 'Coffee',
+      type: 'coffee',
+      color: 'bg-orange-600',
+      span: 'md:col-span-1',
+    } as any,
+  },
+  {
+    type: 'widget',
+    data: {
+      id: 'year-progress',
+      title: 'Progress',
+      type: 'progress',
+      color: 'bg-rose-500',
+      span: 'md:col-span-1'
+    } as any
+  },
+  {
+    type: 'widget',
+    data: {
+      id: 'tech-marquee',
+      title: 'Stack',
+      type: 'marquee',
+      color: 'bg-amber-400',
+      span: 'md:col-span-1'
+    } as any
+  },
+  {
+    type: 'widget',
+    data: {
+      id: 'daily-quote',
+      title: 'Quote',
+      content: 'Simplicity is the ultimate sophistication.',
+      type: 'quote',
+      span: 'md:col-span-1',
+      variant: 'ghost'
+    } as any
+  }
 ]
 
 // 组装最终的 Dashboard 渲染流

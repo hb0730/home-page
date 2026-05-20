@@ -64,6 +64,26 @@ export interface SiteConfig extends Item {
     seasons?: {
       label: string
     }
+    github?: {
+      username: string
+      label: string
+    }
+    moon?: {
+      label: string
+    }
+    coffee?: {
+      cups: number
+      label: string
+    }
+    system?: {
+      label: string
+    }
+    progress?: {
+      label: string
+    }
+    marquee?: {
+      tags: string[]
+    }
   }
 }
 
@@ -71,7 +91,7 @@ export interface WidgetItem extends Item {
   id: string
   title: string
   description?: string
-  type: 'clock' | 'status' | 'note' | 'links' | 'custom' | 'lab' | 'quote' | 'music' | 'terminal' | 'battery' | 'seasons'
+  type: 'clock' | 'status' | 'note' | 'links' | 'custom' | 'lab' | 'quote' | 'music' | 'terminal' | 'battery' | 'seasons' | 'github' | 'moon' | 'coffee' | 'system' | 'progress' | 'marquee'
   span?: string
   color?: string
   content?: string

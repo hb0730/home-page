@@ -21,7 +21,16 @@ export default defineConfig({
     'i-ri-home-4-fill',
     'i-mdi-heart-pulse',
     'i-ri-file-user-fill',
-    'i-ri-qr-code-line' // fallback icon
+    'i-ri-qr-code-line',
+    'i-ri-book-read-fill',
+    'i-ri-music-fill',
+    // Grid Spans
+    'md:col-span-1',
+    'md:col-span-2',
+    'md:col-span-3',
+    'md:col-span-4',
+    'md:row-span-1',
+    'md:row-span-2',
   ],
   rules: [
     // 允许通过 class="custom-qr-gh" 来直接使用公共目录下的图片作为图标

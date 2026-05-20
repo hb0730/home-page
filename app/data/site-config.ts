@@ -38,6 +38,26 @@ export const siteConfig: SiteConfig = {
     },
     seasons: {
       label: 'Cycle of Time'
+    },
+    github: {
+      username: 'hb0730',
+      label: 'Contributions'
+    },
+    moon: {
+      label: 'Lunar Phase'
+    },
+    coffee: {
+      cups: 3,
+      label: 'Coffee Intaken'
+    },
+    system: {
+      label: 'System Monitor'
+    },
+    progress: {
+      label: 'Year Progress'
+    },
+    marquee: {
+      tags: ['Nuxt 4', 'Vue 3', 'TypeScript', 'UnoCSS', 'Spring Boot', 'PostgreSQL', 'Docker', 'Vite', 'Pinia']
     }
   }
 }

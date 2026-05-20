@@ -62,14 +62,15 @@ function onMouseMove(e: MouseEvent) {
   mouseY = e.clientY - bounds.top
 
   if (spotlightRef.value) {
-    spotlightRef.value.style.background = `radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.15), transparent 40%)`
+    // 【性能优化】使用 GPU 加速的 transform 替代极其昂贵的 background radial-gradient 重绘
+    spotlightRef.value.style.transform = `translate(${mouseX - 400}px, ${mouseY - 400}px)`
   }
 
   // 3D 倾斜计算
   const centerX = bounds.width / 2
   const centerY = bounds.height / 2
 
-  const maxRotate = props.variant === 'ghost' ? 5 : 12 // 降低最大角度，让动画更稳
+  const maxRotate = props.variant === 'ghost' ? 5 : 12
   targetRotateY = ((mouseX - centerX) / centerX) * maxRotate
   targetRotateX = -((mouseY - centerY) / centerY) * maxRotate
 }
@@ -87,7 +88,8 @@ function animate() {
   }
 
   if (glareRef.value && isHovering) {
-    glareRef.value.style.background = `linear-gradient(${135 + currentRotateX * 2}deg, rgba(255,255,255,0.4) 0%, transparent 40%, transparent 100%)`
+    // 【性能优化】使用 GPU 加速的 translate 替代 linear-gradient 重绘
+    glareRef.value.style.transform = `translate(${currentRotateY * -2}%, ${currentRotateX * -2}%)`
   }
 
   rafId = requestAnimationFrame(animate)
@@ -99,8 +101,8 @@ function startAnimation() {
 }
 
 onMounted(() => {
-  window.addEventListener('resize', updateBounds)
-  window.addEventListener('scroll', updateBounds)
+  window.addEventListener('resize', updateBounds, { passive: true })
+  window.addEventListener('scroll', updateBounds, { passive: true })
 })
 
 onUnmounted(() => {
@@ -132,17 +134,19 @@ const variantClasses = computed(() => {
       @mouseenter="onMouseEnter"
       @mouseleave="onMouseLeave"
     >
-      <!-- 聚光灯特效 -->
+      <!-- 聚光灯特效：使用超大尺寸和 translate 来避免重绘 -->
       <div
         ref="spotlightRef"
-        class="pointer-events-none absolute -inset-px z-0 opacity-0 transition-opacity duration-300 rounded-[inherit]"
+        class="pointer-events-none absolute left-0 top-0 z-0 h-[800px] w-[800px] opacity-0 transition-opacity duration-300 will-change-transform"
+        style="background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 40%);"
       />
 
-      <!-- 3D 高光反光 (Glare) -->
+      <!-- 3D 高光反光 (Glare)：使用位移避免重绘 -->
       <div
         v-if="variant !== 'ghost'"
         ref="glareRef"
-        class="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 mix-blend-overlay rounded-[inherit]"
+        class="pointer-events-none absolute -inset-full z-10 opacity-0 transition-opacity duration-300 mix-blend-overlay will-change-transform"
+        style="background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);"
       />
 
       <!-- 静态绚丽光晕 -->
