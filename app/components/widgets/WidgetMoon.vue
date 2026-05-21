@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 月相追踪组件
+ * 作用：根据当前日期实时计算并展示月亮的盈亏状态
+ * 特色：内置天文算法计算月龄，带星空背景装饰和发光动效
+ */
 import type { DashboardItem } from '~/data/dashboard'
 import { onMounted, ref } from 'vue'
 import { siteConfig } from '~/data/site-config'

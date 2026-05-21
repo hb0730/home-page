@@ -100,11 +100,31 @@ const widgetItems: DashboardItem[] = [
   {
     type: 'widget',
     data: {
+      id: 'radar-location',
+      title: 'Location',
+      type: 'location',
+      color: 'bg-emerald-600',
+      span: 'md:col-span-1'
+    } as any
+  },
+  {
+    type: 'widget',
+    data: {
+      id: 'live-weather',
+      title: 'Weather',
+      type: 'weather',
+      color: 'bg-sky-500',
+      span: 'md:col-span-1'
+    } as any
+  },
+  {
+    type: 'widget',
+    data: {
       id: 'tech-marquee',
       title: 'Stack',
       type: 'marquee',
       color: 'bg-amber-400',
-      span: 'md:col-span-1'
+      span: 'md:col-span-2' // 调整为 2x1 以填补日程表移除后的空隙
     } as any
   }
 ]

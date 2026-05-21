@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * GitHub 贡献图组件
+ * 作用：调用第三方 API 获取用户真实的 GitHub 提交记录并以点阵图形式展示
+ * 特色：支持全宽展示、Hover 放大交互、实时数据抓取
+ */
 import type { DashboardItem } from '~/data/dashboard'
 import { computed } from 'vue'
 import { siteConfig } from '~/data/site-config'
@@ -35,7 +40,15 @@ const displayedWeeks = computed(() => {
 
 <template>
   <ClientOnly>
-    <div class="flex flex-col h-full justify-between">
+    <!-- 全局跳转链接 -->
+    <a 
+      :href="`https://github.com/${username}`" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="absolute inset-0 z-30"
+    />
+
+    <div class="flex flex-col h-full justify-between relative">
       <div class="flex justify-between items-center">
         <div class="flex items-center gap-3">
           <i class="i-ri-github-fill text-emerald-500 text-xl" />

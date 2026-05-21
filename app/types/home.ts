@@ -84,6 +84,22 @@ export interface SiteConfig extends Item {
     marquee?: {
       tags: string[]
     }
+    schedule?: {
+      label: string
+      items: { time: string; activity: string }[]
+    }
+    location?: {
+      label: string
+      locationName: string
+      mapUrl: string
+      coords: { 
+        lat: string; lng: string;
+        latNum: number; lngNum: number;
+      }
+    }
+    weather?: {
+      label: string
+    }
   }
 }
 
@@ -91,7 +107,7 @@ export interface WidgetItem extends Item {
   id: string
   title: string
   description?: string
-  type: 'clock' | 'status' | 'note' | 'links' | 'custom' | 'lab' | 'quote' | 'music' | 'terminal' | 'battery' | 'seasons' | 'github' | 'moon' | 'coffee' | 'system' | 'progress' | 'marquee' | 'hitokoto'
+  type: 'clock' | 'status' | 'note' | 'links' | 'custom' | 'lab' | 'quote' | 'music' | 'terminal' | 'battery' | 'seasons' | 'github' | 'moon' | 'coffee' | 'system' | 'progress' | 'marquee' | 'hitokoto' | 'schedule' | 'location' | 'weather'
   span?: string
   color?: string
   content?: string

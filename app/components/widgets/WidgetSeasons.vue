@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 四季轮转交互组件
+ * 作用：感知当前季节并触发全屏气候特效（樱花、落叶、大雪等）
+ * 特色：支持点击手动切换季节，通过全局状态 useState 与背景引擎联动
+ */
 import type { DashboardItem } from '~/data/dashboard'
 import { onMounted } from 'vue'
 import { siteConfig } from '~/data/site-config'

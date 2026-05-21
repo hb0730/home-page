@@ -58,5 +58,30 @@ export const siteConfig: SiteConfig = {
     marquee: {
       tags: ['Nuxt 4', 'Vue 3', 'TypeScript', 'UnoCSS', 'Spring Boot', 'PostgreSQL', 'Docker', 'Vite', 'Pinia'],
     },
+    // 极简日程线
+    schedule: {
+      label: 'Daily Routine',
+      items: [
+        { time: '09:00', activity: 'Coffee & Code' },
+        { time: '14:00', activity: 'Design & Review' },
+        { time: '20:00', activity: 'Open Source' },
+      ],
+    },
+    // 访客地理坐标雷达
+    location: {
+      label: 'Location',
+      locationName: '上海 · 浦东',
+      mapUrl: 'https://uri.amap.com/marker?position=121.5447,31.22249&name=上海·浦东',
+      coords: {
+        lat: '31°13\'N',
+        lng: '121°32\'E',
+        latNum: 31.22,
+        lngNum: 121.53,
+      },
+    },
+    // 实时天气组件
+    weather: {
+      label: 'Weather',
+    },
   },
 }
