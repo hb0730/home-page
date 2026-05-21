@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { dashboardConfig, type DashboardItem } from '~/data/dashboard'
+import type { DashboardItem } from '~/data/dashboard'
+import { dashboardConfig } from '~/data/dashboard'
 import StarCard from '../ui/StarCard.vue'
 
 /**
@@ -11,11 +12,13 @@ const componentMap: Record<string, any> = {}
 
 // 自动扫描并建立映射关系：例如 WidgetMusic.vue -> 'music'
 for (const path in widgetModules) {
-  const match = path.match(/\.\.\/widgets\/Widget(.*)\.vue$/)
-  if (match) {
-    const typeName = match[1].toLowerCase()
+  const _match = path.match(/\.\.\/widgets\/Widget(.*)\.vue$/)
+  if (_match) {
+    const typeName = _match[1]
+    if (!typeName)
+      continue
     // 获取组件的默认导出
-    componentMap[typeName] = (widgetModules[path] as any).default
+    componentMap[typeName.toLowerCase()] = (widgetModules[path] as any).default
   }
 }
 
@@ -32,16 +35,16 @@ function resolveComponent(item: DashboardItem) {
 <template>
   <div class="grid grid-cols-1 gap-5 auto-rows-auto md:grid-cols-4 md:auto-rows-[170px]">
     <template v-for="(item, index) in dashboardConfig" :key="index">
-      <!-- 
-        使用 StarCard 作为通用外壳，处理 3D Hover、发光和网格占位 
+      <!--
+        使用 StarCard 作为通用外壳，处理 3D Hover、发光和网格占位
         通过 :is 动态挂载具体的业务组件内容
       -->
-      <StarCard 
-        :span="item.data.span" 
+      <StarCard
+        :span="item.data.span"
         :glow-color="item.data.color"
         :variant="(item.data as any).variant"
         :class="{
-          'bg-slate-950/80! border-emerald-500/20!': item.type === 'widget' && item.data.type === 'terminal'
+          'bg-slate-950/80! border-emerald-500/20!': item.type === 'widget' && item.data.type === 'terminal',
         }"
       >
         <component :is="resolveComponent(item)" :item="item" />

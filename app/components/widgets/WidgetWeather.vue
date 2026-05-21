@@ -27,7 +27,7 @@ const { data, pending, error } = useFetch<any>(
 )
 
 /**
- * WMO 天气代码映射：将 API 返回的状态码转换为图标和描述
+ * WMO 天气代码映射：将 API 返回的状态码转换为图标 and 描述
  * 参考：https://open-meteo.com/en/docs
  */
 const weatherMap = computed(() => {
@@ -58,48 +58,67 @@ const windSpeed = computed(() => data.value?.current?.wind_speed_10m ?? 0)
 </script>
 
 <template>
-  <div class="flex flex-col h-full justify-between group/weather">
-    <div class="flex justify-between items-center opacity-50">
-      <span class="text-[9px] font-bold uppercase tracking-widest">{{ siteConfig.widgets?.weather?.label || 'Weather' }}</span>
-      <span v-if="!pending" class="text-[8px] uppercase font-bold">{{ weatherMap.label }}</span>
-    </div>
-
-    <div class="flex-1 flex flex-col items-center justify-center gap-2">
-      <!-- 加载状态 -->
-      <div v-if="pending" class="animate-pulse flex flex-col items-center gap-4">
-        <div class="w-12 h-12 rounded-full bg-white/10" />
-        <div class="w-16 h-8 bg-white/10 rounded" />
+  <ClientOnly>
+    <div class="flex flex-col h-full justify-between group/weather">
+      <div class="flex justify-between items-center opacity-50">
+        <span class="text-[9px] font-bold uppercase tracking-widest">{{ siteConfig.widgets?.weather?.label || 'Weather' }}</span>
+        <span v-if="!pending" class="text-[8px] uppercase font-bold">{{ weatherMap.label }}</span>
       </div>
 
-      <!-- 错误处理 -->
-      <div v-else-if="error" class="text-rose-400 text-[10px] italic">
-        Weather Offline
-      </div>
-
-      <!-- 实时数据展示 -->
-      <template v-else>
-        <div class="relative">
-          <i :class="[weatherMap.icon, weatherMap.color]" class="text-5xl transition-transform duration-700 group-hover/weather:scale-110" />
-          <!-- 动态光晕层 -->
-          <div class="absolute -inset-4 opacity-20 blur-2xl rounded-full -z-1" :class="weatherMap.color.replace('text-', 'bg-')" />
+      <div class="flex-1 flex flex-col items-center justify-center gap-2">
+        <!-- 加载状态 -->
+        <div v-if="pending" class="animate-pulse flex flex-col items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-white/10" />
+          <div class="w-16 h-8 bg-white/10 rounded" />
         </div>
-        <div class="flex items-baseline gap-1">
-          <span class="text-4xl font-black text-white leading-none">{{ currentTemp }}</span>
-          <span class="text-sm font-bold opacity-40">°C</span>
+
+        <!-- 错误处理 -->
+        <div v-else-if="error" class="text-rose-400 text-[10px] italic">
+          Weather Offline
         </div>
-      </template>
+
+        <!-- 实时数据展示 -->
+        <template v-else>
+          <div class="relative">
+            <i :class="[weatherMap.icon, weatherMap.color]" class="text-5xl transition-transform duration-700 group-hover/weather:scale-110" />
+            <!-- 动态光晕层 -->
+            <div class="absolute -inset-4 opacity-20 blur-2xl rounded-full -z-1" :class="weatherMap.color.replace('text-', 'bg-')" />
+          </div>
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl font-black text-white leading-none">{{ currentTemp }}</span>
+            <span class="text-sm font-bold opacity-40">°C</span>
+          </div>
+        </template>
+      </div>
+
+      <!-- 底部详情栏 -->
+      <div class="flex justify-between items-center text-[9px] font-bold text-slate-500 uppercase tracking-tighter border-t border-white/5 pt-3">
+        <div class="flex items-center gap-1.5">
+          <i class="i-ri-windy-line" />
+          <span>{{ windSpeed }}<small class="lowercase ml-0.5">km/h</small></span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <i class="i-ri-drop-line" />
+          <span>{{ humidity }}%</span>
+        </div>
+      </div>
     </div>
 
-    <!-- 底部详情栏 -->
-    <div class="flex justify-between items-center text-[9px] font-bold text-slate-500 uppercase tracking-tighter border-t border-white/5 pt-3">
-      <div class="flex items-center gap-1.5">
-        <i class="i-ri-windy-line" />
-        <span>{{ windSpeed }}<small class="lowercase ml-0.5">km/h</small></span>
+    <!-- 骨架屏占位，确保 SSR 结构一致 -->
+    <template #fallback>
+      <div class="flex flex-col h-full justify-between opacity-50">
+        <div class="flex justify-between items-center opacity-50">
+          <span class="text-[9px] font-bold uppercase tracking-widest">Weather</span>
+        </div>
+        <div class="flex-1 flex flex-col items-center justify-center gap-4 animate-pulse">
+          <div class="w-12 h-12 rounded-full bg-white/10" />
+          <div class="h-8 w-16 bg-white/10 rounded" />
+        </div>
+        <div class="flex justify-between items-center border-t border-white/5 pt-3">
+          <div class="w-8 h-3 bg-white/5 rounded" />
+          <div class="w-8 h-3 bg-white/5 rounded" />
+        </div>
       </div>
-      <div class="flex items-center gap-1.5">
-        <i class="i-ri-drop-line" />
-        <span>{{ humidity }}%</span>
-      </div>
-    </div>
-  </div>
+    </template>
+  </ClientOnly>
 </template>
