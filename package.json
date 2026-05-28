@@ -21,7 +21,7 @@
     "@unocss/nuxt": "^66.1.0",
     "eslint": "^9.28.0",
     "oxc-parser": "^0.132.0",
-    "typescript": "^5.8.3",
+    "typescript": "^6.0.0",
     "unocss": "^66.1.0",
     "vue-tsc": "^2.2.10"
   }
